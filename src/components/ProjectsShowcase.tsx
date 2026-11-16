@@ -3,7 +3,7 @@
 import React, { useRef, useState } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Image from "next/image";
-import { ExternalLink, Github, Sparkles, Box, FileText } from "lucide-react";
+import { ExternalLink, Github, Sparkles } from "lucide-react";
 
 interface Project {
   title: string;
@@ -14,22 +14,12 @@ interface Project {
   githubUrl: string;
   liveUrl: string;
   metrics: string;
+  image?: string;
   images?: string[];
+  imageAlt?: string;
 }
 
 const projects: Project[] = [
-  {
-    title: "LASU Aircraft Maintenance Lab (360m² Hangar Masterplan)",
-    category: "Aerospace Infrastructure & CAD/CAM",
-    tagline: "Designed in Onshape with 15m clear-span & specialized avionics clean rooms",
-    description:
-      "Facilities & Infrastructure Lead. Modeled an entire 360m² aircraft hangar featuring 15 m clear-span, 4.5 m clearance, paved hardstands, propulsion test cells, NCAA aviation compliance, and A3 manufacturing blueprints.",
-    tags: ["Onshape CAD", "Aero Infrastructure", "NCAA Compliance", "A3 Blueprints", "CAM Prototyping"],
-    githubUrl: "https://github.com/Oluola4002",
-    liveUrl: "https://samueloluolamideadebanjo.com",
-    metrics: "360 m² Facility / 15m Clear-Span / A3 Engineering Drawings",
-    images: ["/images/hangar-3d-model.png", "/images/hangar-cad-blueprint.png"],
-  },
   {
     title: "SkyClerk Autonomous Delivery Drone",
     category: "Aerial Robotics & UAV Systems",
@@ -40,6 +30,8 @@ const projects: Project[] = [
     githubUrl: "https://github.com/Oluola4002",
     liveUrl: "https://samueloluolamideadebanjo.com",
     metrics: "100% Autonomous Mission Profile / 3D-Printed Airframe",
+    image: "/images/skyclerk-logo.jpg",
+    imageAlt: "SkyClerk Autonomous Delivery Drone 3D Official Quadcopter Branding",
   },
   {
     title: "AeroAgroPay — OPay NICA 2026",
@@ -51,17 +43,33 @@ const projects: Project[] = [
     githubUrl: "https://github.com/Oluola4002",
     liveUrl: "https://samueloluolamideadebanjo.com",
     metrics: "OPay NICA 2026 Finalist Project / Gemini AI Pipeline",
+    image: "/images/aeroagropay-ui.png",
+    imageAlt: "AeroAgroPay Precision Agriculture Platform UI",
   },
   {
-    title: "Hybrid CFD-ML Real-Time Pipeline Leak Detector",
-    category: "Computational Physics & Machine Learning",
-    tagline: "High-fidelity fluid dynamics combined with predictive neural networks",
+    title: "Roboimọtótó Autonomous Voice-Controlled Robot",
+    category: "Voice-Controlled Mobile Robotics & HRI",
+    tagline: "Robotic car-mounted patrol bin with voice-actuated servo lid",
     description:
-      "Coupled ANSYS Computational Fluid Dynamics (CFD) with predictive machine learning algorithms to model pressurized pipeline transients and pinpoint microscopic leaks in sub-second latency.",
-    tags: ["ANSYS Fluent", "Python", "Machine Learning", "CFD", "Predictive Analytics"],
+      "Engineered mobile patrol robotic car equipped with a servo-controlled lid actuated by direct voice commands ('Open' / 'Close') and ultrasonic sensors for obstacle avoidance and human-robot interaction.",
+    tags: ["Speech Recognition", "Robotics", "Arduino / C++", "Ultrasonic Sensors", "HRI"],
     githubUrl: "https://github.com/Oluola4002",
     liveUrl: "https://samueloluolamideadebanjo.com",
-    metrics: "Peer-Reviewed (SPE-235078-MS) / NAICE 2026",
+    metrics: "Voice-Actuated Real-Time HRI / Ultrasonic Obstacle Avoidance",
+    image: "/images/roboimototo-robot.jpg",
+    imageAlt: "Roboimọtótó Autonomous Voice-Controlled Mobile Smart Bin Physical Hardware",
+  },
+  {
+    title: "LASU Aircraft Maintenance Lab (360m² Hangar)",
+    category: "Aerospace Infrastructure & CAD/CAM",
+    tagline: "Designed in Onshape with 15m clear-span & specialized avionics clean rooms",
+    description:
+      "Facilities & Infrastructure Lead. Modeled an entire 360m² aircraft hangar featuring 15 m clear-span, 4.5 m clearance, paved hardstands, propulsion test cells, NCAA aviation compliance, and A3 manufacturing blueprints.",
+    tags: ["Onshape CAD", "Aero Infrastructure", "NCAA Compliance", "A3 Blueprints", "CAM Prototyping"],
+    githubUrl: "https://github.com/Oluola4002",
+    liveUrl: "https://samueloluolamideadebanjo.com",
+    metrics: "360 m² Facility / 15m Clear-Span / A3 Engineering Drawings",
+    images: ["/images/hangar-3d-model.png", "/images/hangar-cad-blueprint.png"],
   },
 ];
 
@@ -157,10 +165,22 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           {project.tagline}
         </p>
 
-        {/* Embedded CAD Renders / Blueprints if present */}
+        {/* Single Featured Project Image */}
+        {project.image && (
+          <div className="mt-5 relative h-44 sm:h-52 rounded-2xl overflow-hidden border border-cyan-500/25 bg-black/70 shadow-lg">
+            <Image
+              src={project.image}
+              alt={project.imageAlt || project.title}
+              fill
+              className="object-contain p-2 group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+        )}
+
+        {/* Dual Embedded CAD Renders / Blueprints */}
         {project.images && project.images.length > 0 && (
           <div className="mt-5 grid grid-cols-2 gap-3">
-            <div className="relative h-32 sm:h-36 rounded-xl overflow-hidden border border-cyan-500/25 bg-black/60 shadow-md">
+            <div className="relative h-36 rounded-xl overflow-hidden border border-cyan-500/25 bg-black/60 shadow-md">
               <Image
                 src={project.images[0]}
                 alt="3D CAD Model in Onshape"
@@ -171,7 +191,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                 Onshape 3D
               </span>
             </div>
-            <div className="relative h-32 sm:h-36 rounded-xl overflow-hidden border border-cyan-500/25 bg-white shadow-md">
+            <div className="relative h-36 rounded-xl overflow-hidden border border-cyan-500/25 bg-white shadow-md">
               <Image
                 src={project.images[1]}
                 alt="A3 Engineering Drawing Blueprint"

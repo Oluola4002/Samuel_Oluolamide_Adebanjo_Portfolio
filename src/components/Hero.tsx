@@ -1,27 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import MagneticButton from "./MagneticButton";
-import { ArrowDown, Award, ExternalLink, Orbit, Rocket, Sparkles, Terminal, Camera } from "lucide-react";
+import HeroImageSlideshow from "./HeroImageSlideshow";
+import { ArrowDown, ExternalLink, Rocket, Terminal } from "lucide-react";
 
 export default function Hero() {
-  const [photoIndex, setPhotoIndex] = useState<0 | 1>(0);
-
-  const photos = [
-    {
-      src: "/images/graduation-portrait.jpg",
-      alt: "Samuel Oluolamide Adebanjo - First Class Aerospace Engineering Valedictorian",
-      label: "Official Valedictorian Regalia",
-    },
-    {
-      src: "/images/samuel-adebanjo.jpg",
-      alt: "Samuel Oluolamide Adebanjo - Aerospace Technologist & Researcher",
-      label: "Creative Technologist",
-    },
-  ];
-
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center pt-28 pb-16 px-4 overflow-hidden">
       {/* Deep Space Cosmic Auras */}
@@ -41,49 +25,19 @@ export default function Hero() {
             <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-400" />
           </span>
           <span className="text-xs font-mono font-medium tracking-wide text-cyan-200">
-            First-Class Aerospace Engineer &bull; CGPA 4.97/5.00 &bull; Seeking Graduate Research in Robotic Autonomy
+            First-Class Aerospace Engineer &bull; Valedictorian &bull; Seeking Graduate Research in Robotic Autonomy
           </span>
         </motion.div>
 
-        {/* Dual Layout: Interactive Portrait Switcher + Headline */}
+        {/* Dual Layout: Interactive Portrait Slideshow + Headline */}
         <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-14 my-4">
-          {/* Portrait with Orbital Cosmic Backlight & Toggle */}
+          {/* Animated Personal Photos Slideshow (No caricature) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative group shrink-0"
           >
-            {/* Ambient Celestial Blue & Rocket Flare Ring */}
-            <div className="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-blue-600 via-cyan-400 to-sky-300 opacity-70 blur-xl group-hover:opacity-100 transition duration-500" />
-
-            <div className="relative h-52 w-52 sm:h-60 sm:w-60 md:h-64 md:w-64 rounded-3xl overflow-hidden border-2 border-cyan-400/50 bg-space-navy shadow-[0_16px_50px_rgba(0,0,0,0.9)]">
-              <Image
-                src={photos[photoIndex].src}
-                alt={photos[photoIndex].alt}
-                fill
-                sizes="(max-width: 768px) 240px, 256px"
-                className="object-cover object-top transition-all duration-500 group-hover:scale-105"
-                priority
-              />
-
-              {/* Photo Switcher Pill */}
-              <button
-                onClick={() => setPhotoIndex(photoIndex === 0 ? 1 : 0)}
-                data-cursor="hover"
-                className="absolute bottom-2.5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/75 hover:bg-black/90 border border-cyan-400/40 text-[10px] font-mono text-cyan-300 backdrop-blur-md transition-all shadow-lg hover:border-cyan-300"
-                title="Toggle portrait mode"
-              >
-                <Camera className="w-3 h-3 text-cyan-400" />
-                <span>Switch View</span>
-              </button>
-            </div>
-
-            {/* Orbiting CGPA Telemetry Stamp */}
-            <div className="absolute -top-3 -right-3 px-3 py-1 rounded-full bg-space-dark/95 border border-cyan-400/70 text-[10px] font-mono text-cyan-300 shadow-xl flex items-center gap-1.5 backdrop-blur-md">
-              <Orbit className="w-3.5 h-3.5 text-cyan-400" />
-              <span className="font-bold">4.97 / 5.00 CGPA</span>
-            </div>
+            <HeroImageSlideshow />
           </motion.div>
 
           {/* Headline Text */}
@@ -121,7 +75,7 @@ export default function Hero() {
               <span className="px-2.5 py-1 rounded-md bg-blue-950/50 border border-blue-500/30 text-sky-300">
                 Top 100 African Future Leaders
               </span>
-              <span className="px-2.5 py-1 rounded-md bg-blue-950/50 border border-cyan-500/30 text-cyan-300">
+              <span className="px-2.5 py-1 rounded-md bg-cyan-950/40 border border-cyan-500/30 text-cyan-300">
                 ASME Scholar ($2,500)
               </span>
             </motion.div>
