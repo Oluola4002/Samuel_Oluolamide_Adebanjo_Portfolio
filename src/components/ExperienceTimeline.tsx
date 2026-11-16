@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Briefcase, Calendar, MapPin, CheckCircle2 } from "lucide-react";
+import { Calendar, MapPin, CheckCircle2, Award } from "lucide-react";
 
 interface Experience {
   role: string;
@@ -14,41 +14,64 @@ interface Experience {
 
 const experiences: Experience[] = [
   {
-    role: "Senior Software Engineer / Lead Developer",
-    company: "Tech Innovations & Digital Labs",
-    period: "2023 — Present",
-    location: "Lagos & Remote",
+    role: "Data Science & Generative AI Intern",
+    company: "FlexiSAF Edusoft Limited",
+    period: "Sept 2026 — Present",
+    location: "Remote",
     description:
-      "Spearheading frontend architecture and distributed systems across multi-platform client applications, mentoring junior engineers, and driving performance optimizations.",
+      "Selected for FlexiSAF's competitive Internship Program (FIP) focusing on data science workflows, generative AI pipelines, and enterprise automation.",
     achievements: [
-      "Engineered micro-frontend modules reducing page bundle size by 42%.",
-      "Streamlined CI/CD automation pipelines cutting build times down by 35%.",
-      "Architected real-time WebSocket dashboard handling 20,000+ daily active users.",
+      "Built structured data science workflows and generative AI model integrations.",
+      "Achieved first-month milestone requirements with distinction.",
     ],
   },
   {
-    role: "Full-Stack Software Engineer",
-    company: "Enterprise Solutions & Digital Ecosystems",
-    period: "2021 — 2023",
-    location: "Remote / Hybrid",
-    description:
-      "Developed client-facing web applications, integrated payment gateways, and built scalable RESTful & GraphQL microservices with high reliability.",
-    achievements: [
-      "Built resilient transactional engines with PostgreSQL and Redis caching.",
-      "Collaborated with cross-functional product design teams in rapid agile sprints.",
-      "Achieved 99.9% uptime across production service deployments.",
-    ],
-  },
-  {
-    role: "Frontend & Creative Developer",
-    company: "Studio Digital & Web Foundry",
-    period: "2019 — 2021",
+    role: "Undergraduate Researcher & Team Lead (SkyClerk Drone)",
+    company: "Lagos State University (Supervisor: Engr. Joseph Olofinkua)",
+    period: "Oct 2025 — Sept 2026",
     location: "Lagos, Nigeria",
     description:
-      "Crafted bespoke digital marketing experiences, interactive branding portals, and responsive design systems with micro-animations.",
+      "Spearheaded the research and end-to-end autonomous mission architecture for SkyClerk, an autonomous delivery UAV for secure asset transport.",
     achievements: [
-      "Delivered 15+ bespoke client portals with high interactive polish.",
-      "Optimized Core Web Vitals to score 98+ on Google Lighthouse across all projects.",
+      "Designed full autonomous flight flow: loading, takeoff, waypoint navigation, landing, and return-to-base.",
+      "Integrated telemetry, real-time perception sensors, and custom web mission dashboard.",
+      "Engineered 3D-printed modular cargo bay with custom servo release mechanisms.",
+    ],
+  },
+  {
+    role: "Deep Tech R&D Engineering Intern (UAVs & Robotics)",
+    company: "Innovia Labs (Supervisors: Durojaiye Philips & Isaac Nagu)",
+    period: "Apr 2025 — Sept 2025",
+    location: "Nigeria",
+    description:
+      "Prototyped next-generation unmanned aerial vehicles, researched autonomous flight logic, and conducted rapid prototyping.",
+    achievements: [
+      "Performed advanced CAD modelling in Onshape and CAM operations on CNC machinery and BambuLab 3D printers.",
+      "Developed IoT embedded integrations with Wazilab hardware for drone telemetry.",
+    ],
+  },
+  {
+    role: "Facilities & Infrastructure Lead (LASU Aircraft Maintenance Lab)",
+    company: "Lagos State University",
+    period: "Mar 2026 — May 2026",
+    location: "Lagos, Nigeria",
+    description:
+      "Designed a complete 360 m² aircraft maintenance hangar featuring 15 m clear-span and 4.5 m clearance in Onshape.",
+    achievements: [
+      "Planned specialized zones for avionics clean rooms, propulsion test cells, and paved hardstands.",
+      "Coordinated 5 leads to integrate tooling, NCAA aviation compliance, and HSE protocols.",
+    ],
+  },
+  {
+    role: "Space Propulsion & Rocketry Research Intern",
+    company: "NASRDA Centre for Space Transport & Propulsion (CSTP)",
+    period: "Sep 2024 — Nov 2024",
+    location: "Epe, Nigeria",
+    description:
+      "Underwent rigorous technical training across 7 specialized departments covering space propulsion, combustion engines, and rocket aerodynamics.",
+    achievements: [
+      "Researched solid/liquid rocket propulsion mechanics and missile trajectory dynamics.",
+      "Drafted comprehensive technical evaluations presented to senior NASRDA researchers.",
     ],
   },
 ];
@@ -58,13 +81,13 @@ export default function ExperienceTimeline() {
     <section id="experience" className="relative py-28 px-4 max-w-5xl mx-auto">
       <div className="flex flex-col items-center text-center mb-16">
         <span className="text-xs font-mono uppercase tracking-widest text-emerald-400 mb-2">
-          // Career Trajectory
+          // Research &amp; Industry Track
         </span>
         <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
-          Work Experience
+          Experience &amp; Leadership
         </h2>
         <p className="mt-4 text-zinc-400 max-w-lg text-sm sm:text-base">
-          Proven track record of architecting, deploying, and scaling mission-critical web applications.
+          Hands-on aerospace engineering, autonomous drone R&amp;D, space propulsion training, and generative AI research.
         </p>
       </div>
 
@@ -75,7 +98,7 @@ export default function ExperienceTimeline() {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6, delay: index * 0.15 }}
+            transition={{ duration: 0.6, delay: index * 0.12 }}
             className="relative pl-8 sm:pl-12 group"
           >
             {/* Timeline node */}
