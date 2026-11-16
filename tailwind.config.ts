@@ -10,20 +10,28 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#08090A",
-        foreground: "#EDEDED",
-        surface: {
-          50: "#121417",
-          100: "#181A1F",
-          200: "#22252B",
-          300: "#2F333B",
+        background: "#030712", // Deep cosmic void
+        foreground: "#F0F6FC",
+        space: {
+          void: "#02040a",
+          dark: "#050B18",
+          navy: "#0a1226",
+          cosmos: "#0f1c3f",
+          accent: "#1e3a8a",
         },
-        accent: {
-          emerald: "#10B981",
-          electric: "#00F59B",
-          cyan: "#06B6D4",
-          violet: "#8B5CF6",
-          amber: "#F59E0B",
+        surface: {
+          50: "#091224",
+          100: "#0d1a33",
+          200: "#132342",
+          300: "#1a2d54",
+        },
+        cosmic: {
+          blue: "#2563eb",
+          cyan: "#00E5FF",
+          sky: "#38bdf8",
+          rocket: "#ef4444", // Rocket crimson streak
+          flame: "#f97316",
+          emerald: "#10b981",
         },
       },
       fontFamily: {
@@ -33,16 +41,17 @@ const config: Config = {
       animation: {
         "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         "marquee": "marquee 25s linear infinite",
-        "marquee-reverse": "marquee-reverse 25s linear infinite",
+        "orbit-slow": "spin 40s linear infinite",
+        "twinkle": "twinkle 3s ease-in-out infinite",
       },
       keyframes: {
         marquee: {
           "0%": { transform: "translateX(0%)" },
           "100%": { transform: "translateX(-50%)" },
         },
-        "marquee-reverse": {
-          "0%": { transform: "translateX(-50%)" },
-          "100%": { transform: "translateX(0%)" },
+        twinkle: {
+          "0%, 100%": { opacity: "0.2" },
+          "50%": { opacity: "0.9" },
         },
       },
     },

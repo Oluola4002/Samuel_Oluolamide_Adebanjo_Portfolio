@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import MagneticButton from "./MagneticButton";
-import { ArrowUpRight, Sparkles, Rocket } from "lucide-react";
+import { ArrowUpRight, Rocket } from "lucide-react";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -30,8 +30,8 @@ export default function Navbar() {
       <nav
         className={`flex items-center justify-between gap-4 rounded-full px-5 py-2.5 transition-all duration-300 ${
           scrolled
-            ? "glass-pill shadow-[0_8px_32px_rgba(0,0,0,0.6)] border-emerald-500/20"
-            : "bg-surface-50/70 backdrop-blur-md border border-white/10"
+            ? "glass-pill shadow-[0_8px_32px_rgba(0,0,0,0.8)] border-cyan-400/40"
+            : "bg-space-dark/80 backdrop-blur-md border border-cyan-500/20"
         } max-w-5xl w-full`}
       >
         {/* Brand / Logo with AeroAstro Emblem */}
@@ -40,7 +40,7 @@ export default function Navbar() {
             href="#"
             className="flex items-center gap-2.5 group text-sm font-semibold tracking-wider text-white"
           >
-            <div className="relative h-8 w-8 rounded-full overflow-hidden bg-black/60 border border-emerald-500/30 flex items-center justify-center p-0.5 group-hover:border-emerald-400 transition-colors shadow-[0_0_12px_rgba(16,185,129,0.3)]">
+            <div className="relative h-8 w-8 rounded-full overflow-hidden bg-space-void border border-cyan-400/40 flex items-center justify-center p-0.5 group-hover:border-cyan-400 transition-colors shadow-[0_0_14px_rgba(0,229,255,0.4)]">
               <Image
                 src="/images/aeroastro-intelligence.png"
                 alt="AeroAstro Intelligence Logo"
@@ -51,10 +51,10 @@ export default function Navbar() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-mono text-xs font-bold text-zinc-100 group-hover:text-emerald-400 transition-colors">
+              <span className="font-mono text-xs font-bold text-slate-100 group-hover:text-cyan-400 transition-colors">
                 Samuel O. Adebanjo
               </span>
-              <span className="text-[10px] font-mono text-zinc-400 tracking-wider">
+              <span className="text-[10px] font-mono text-cyan-300/80 tracking-wider">
                 Aero-Astro Intelligence
               </span>
             </div>
@@ -67,7 +67,7 @@ export default function Navbar() {
             <a
               key={item.label}
               href={item.href}
-              className="text-xs uppercase tracking-widest text-zinc-400 hover:text-white transition-colors relative py-1 hover:after:w-full after:w-0 after:h-[2px] after:bg-emerald-400 after:absolute after:bottom-0 after:left-0 after:transition-all after:duration-200"
+              className="text-xs uppercase tracking-widest text-slate-400 hover:text-cyan-300 transition-colors relative py-1 hover:after:w-full after:w-0 after:h-[2px] after:bg-cyan-400 after:absolute after:bottom-0 after:left-0 after:transition-all after:duration-200"
             >
               {item.label}
             </a>
@@ -79,10 +79,10 @@ export default function Navbar() {
           <MagneticButton strength={15}>
             <a
               href="mailto:samueloluola.a@gmail.com"
-              className="flex items-center gap-1.5 rounded-full bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 px-3.5 py-1.5 text-xs font-medium tracking-wide text-emerald-400 transition-all hover:scale-105 hover:shadow-[0_0_16px_rgba(16,185,129,0.25)]"
+              className="flex items-center gap-1.5 rounded-full bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-400/40 px-3.5 py-1.5 text-xs font-medium tracking-wide text-cyan-300 transition-all hover:scale-105 hover:shadow-[0_0_18px_rgba(0,229,255,0.35)]"
             >
-              <Sparkles className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">Get In Touch</span>
+              <Rocket className="w-3.5 h-3.5 text-cyan-400" />
+              <span className="hidden sm:inline">Connect</span>
               <span className="sm:hidden">Contact</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </a>

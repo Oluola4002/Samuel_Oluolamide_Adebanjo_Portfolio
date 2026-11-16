@@ -3,28 +3,29 @@ import "./globals.css";
 import CustomCursor from "@/components/CustomCursor";
 import SmoothScroll from "@/components/SmoothScroll";
 import Navbar from "@/components/Navbar";
+import SpaceBackground from "@/components/SpaceBackground";
 
 export const metadata: Metadata = {
-  title: "Samuel Oluolamide Adebanjo | Software Engineer & Creative Developer",
+  title: "Samuel Oluolamide Adebanjo | Aerospace Engineer & Aero-Astro Intelligence",
   description:
-    "Official portfolio of Samuel Oluolamide Adebanjo. Software Engineer & Creative Technologist crafting high-octane web applications, fluid micro-interactions, and resilient systems.",
+    "Official portfolio of Samuel Oluolamide Adebanjo. First-Class Aerospace Engineer & Researcher pioneering Aero-Astro Intelligence: autonomous UAV/UGV robotics, flight dynamics, and deep learning.",
   keywords: [
     "Samuel Oluolamide Adebanjo",
     "Samuel Adebanjo",
-    "Portfolio",
-    "Software Engineer",
-    "Frontend Engineer",
-    "Full Stack Developer",
-    "Creative Developer",
-    "Lagos",
-    "Next.js",
-    "React",
+    "Aerospace Engineer",
+    "Aero-Astro Intelligence",
+    "Autonomous Robotics",
+    "UAV Autonomy",
+    "Lagos State University",
+    "Best Graduating Student",
+    "SPE NAICE",
+    "Deep Learning",
   ],
   authors: [{ name: "Samuel Oluolamide Adebanjo" }],
   openGraph: {
-    title: "Samuel Oluolamide Adebanjo | Portfolio",
+    title: "Samuel Oluolamide Adebanjo | Aero-Astro Intelligence",
     description:
-      "Software Engineer & Creative Technologist crafting high-octane web applications and fluid micro-interactions.",
+      "First-Class Aerospace Engineer & Researcher pioneering Aero-Astro Intelligence: autonomous robotics and aerospace systems.",
     url: "https://samueloluolamideadebanjo.com",
     siteName: "Samuel Oluolamide Adebanjo Portfolio",
     locale: "en_US",
@@ -32,9 +33,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Samuel Oluolamide Adebanjo | Software Engineer",
+    title: "Samuel Oluolamide Adebanjo | Aerospace Engineer",
     description:
-      "Software Engineer & Creative Technologist crafting high-octane web applications and fluid micro-interactions.",
+      "First-Class Aerospace Engineer & Researcher pioneering Aero-Astro Intelligence.",
   },
 };
 
@@ -45,16 +46,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark scroll-smooth">
-      <body
-        className="font-sans antialiased bg-background text-foreground min-h-screen selection:bg-emerald-400 selection:text-black"
-      >
+      <body className="font-sans antialiased bg-space-void text-foreground min-h-screen selection:bg-cyan-400 selection:text-black relative">
+        <SpaceBackground />
         <SmoothScroll>
           <CustomCursor />
           <Navbar />
-          {children}
+          <div className="relative z-10">{children}</div>
         </SmoothScroll>
       </body>
     </html>
   );
 }
-

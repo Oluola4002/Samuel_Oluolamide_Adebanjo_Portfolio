@@ -10,17 +10,15 @@ export default function CustomCursor() {
   const [cursorVariant, setCursorVariant] = useState<CursorVariant>("default");
   const [isVisible, setIsVisible] = useState(false);
 
-  // Position motion values
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
 
-  // Smooth fluid spring physics for the trailing ring (Terra Industries fluid feel)
+  // Smooth fluid spring physics
   const springConfig = { damping: 28, stiffness: 350, mass: 0.5 };
   const smoothX = useSpring(mouseX, springConfig);
   const smoothY = useSpring(mouseY, springConfig);
 
   useEffect(() => {
-    // Only enable on desktop/fine pointers
     if (window.matchMedia("(pointer: coarse)").matches) {
       return;
     }
@@ -31,15 +29,9 @@ export default function CustomCursor() {
       if (!isVisible) setIsVisible(true);
     };
 
-    const handleMouseLeave = () => {
-      setIsVisible(false);
-    };
+    const handleMouseLeave = () => setIsVisible(false);
+    const handleMouseEnter = () => setIsVisible(true);
 
-    const handleMouseEnter = () => {
-      setIsVisible(true);
-    };
-
-    // Listen for interactive elements
     const handleElementHover = (e: MouseEvent) => {
       const target = e.target as HTMLElement | null;
       if (!target) return;
@@ -86,9 +78,9 @@ export default function CustomCursor() {
 
   return (
     <>
-      {/* 1. Fast, pinpoint center dot */}
+      {/* 1. Fast, pinpoint center dot (Electric Cyan / Rocket Pulse) */}
       <motion.div
-        className="pointer-events-none fixed top-0 left-0 z-[9999] rounded-full bg-emerald-400"
+        className="pointer-events-none fixed top-0 left-0 z-[9999] rounded-full bg-cyan-400 shadow-[0_0_10px_#00E5FF]"
         style={{
           x: mouseX,
           y: mouseY,
@@ -100,9 +92,9 @@ export default function CustomCursor() {
         }}
       />
 
-      {/* 2. Fluid spring-trailing ring (Terra Industries signature) */}
+      {/* 2. Fluid spring-trailing ring (Celestial Orbit feel) */}
       <motion.div
-        className="pointer-events-none fixed top-0 left-0 z-[9998] flex items-center justify-center rounded-full border border-emerald-400/40 backdrop-blur-[2px]"
+        className="pointer-events-none fixed top-0 left-0 z-[9998] flex items-center justify-center rounded-full border backdrop-blur-[2px]"
         style={{
           x: smoothX,
           y: smoothY,
@@ -128,21 +120,25 @@ export default function CustomCursor() {
               : 34,
           backgroundColor:
             cursorVariant === "project"
-              ? "rgba(16, 185, 129, 0.9)"
+              ? "rgba(0, 229, 255, 0.9)"
               : cursorVariant === "drag"
-              ? "rgba(6, 182, 212, 0.9)"
+              ? "rgba(37, 99, 235, 0.9)"
               : cursorVariant === "hover"
-              ? "rgba(255, 255, 255, 0.12)"
-              : "rgba(16, 185, 129, 0.04)",
+              ? "rgba(56, 189, 248, 0.15)"
+              : "rgba(0, 229, 255, 0.05)",
           borderColor:
             cursorVariant === "hover" || cursorVariant === "project"
-              ? "rgba(0, 245, 155, 0.9)"
-              : "rgba(255, 255, 255, 0.2)",
+              ? "rgba(0, 229, 255, 0.9)"
+              : "rgba(56, 189, 248, 0.3)",
+          boxShadow:
+            cursorVariant === "project"
+              ? "0 0 24px rgba(0, 229, 255, 0.5)"
+              : "0 0 10px rgba(37, 99, 235, 0.2)",
         }}
         transition={{ type: "spring", stiffness: 350, damping: 25 }}
       >
         {cursorText && (
-          <span className="text-[10px] font-bold tracking-wider uppercase text-black">
+          <span className="text-[10px] font-bold tracking-wider uppercase text-black font-mono">
             {cursorText}
           </span>
         )}
