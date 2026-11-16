@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Calendar, MapPin, CheckCircle2, Award } from "lucide-react";
+import Image from "next/image";
+import { Calendar, MapPin, CheckCircle2, Briefcase } from "lucide-react";
 
 interface Experience {
   role: string;
@@ -10,13 +11,15 @@ interface Experience {
   location: string;
   description: string;
   achievements: string[];
+  image?: string;
+  imageAlt?: string;
 }
 
 const experiences: Experience[] = [
   {
     role: "Data Science & Generative AI Intern",
     company: "FlexiSAF Edusoft Limited",
-    period: "Sept 2026 — Present",
+    period: "Sept 2026 — Dec 2026",
     location: "Remote",
     description:
       "Selected for FlexiSAF's competitive Internship Program (FIP) focusing on data science workflows, generative AI pipelines, and enterprise automation.",
@@ -24,6 +27,8 @@ const experiences: Experience[] = [
       "Built structured data science workflows and generative AI model integrations.",
       "Achieved first-month milestone requirements with distinction.",
     ],
+    image: "/images/flexisaf-internship.jpg",
+    imageAlt: "Samuel Adebanjo Selected for FlexiSAF Internship Program Cohort",
   },
   {
     role: "Undergraduate Researcher & Team Lead (SkyClerk Drone)",
@@ -39,6 +44,20 @@ const experiences: Experience[] = [
     ],
   },
   {
+    role: "Field Engineering & NSE Epe Branch Leader",
+    company: "Nigerian Society of Engineers (NSE) & Industry Labs",
+    period: "2024 — Present",
+    location: "Epe, Lagos, Nigeria",
+    description:
+      "Active on-site field engineering, mechanical operations, tooling compliance, and student mentorship under the Nigerian Society of Engineers.",
+    achievements: [
+      "Honored with the NSE Epe Branch Certificate of Excellence as Overall Best Engineering Student.",
+      "Conducted on-site technical evaluations in full PPE and safety compliance.",
+    ],
+    image: "/images/field-engineering.jpg",
+    imageAlt: "Samuel Adebanjo in Hard Hat and Safety Vest - NSE Field Engineering",
+  },
+  {
     role: "Deep Tech R&D Engineering Intern (UAVs & Robotics)",
     company: "Innovia Labs (Supervisors: Durojaiye Philips & Isaac Nagu)",
     period: "Apr 2025 — Sept 2025",
@@ -48,18 +67,6 @@ const experiences: Experience[] = [
     achievements: [
       "Performed advanced CAD modelling in Onshape and CAM operations on CNC machinery and BambuLab 3D printers.",
       "Developed IoT embedded integrations with Wazilab hardware for drone telemetry.",
-    ],
-  },
-  {
-    role: "Facilities & Infrastructure Lead (LASU Aircraft Maintenance Lab)",
-    company: "Lagos State University",
-    period: "Mar 2026 — May 2026",
-    location: "Lagos, Nigeria",
-    description:
-      "Designed a complete 360 m² aircraft maintenance hangar featuring 15 m clear-span and 4.5 m clearance in Onshape.",
-    achievements: [
-      "Planned specialized zones for avionics clean rooms, propulsion test cells, and paved hardstands.",
-      "Coordinated 5 leads to integrate tooling, NCAA aviation compliance, and HSE protocols.",
     ],
   },
   {
@@ -80,18 +87,18 @@ export default function ExperienceTimeline() {
   return (
     <section id="experience" className="relative py-28 px-4 max-w-5xl mx-auto">
       <div className="flex flex-col items-center text-center mb-16">
-        <span className="text-xs font-mono uppercase tracking-widest text-emerald-400 mb-2">
+        <span className="text-xs font-mono uppercase tracking-widest text-cyan-400 mb-2 block">
           // Research &amp; Industry Track
         </span>
         <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
           Experience &amp; Leadership
         </h2>
-        <p className="mt-4 text-zinc-400 max-w-lg text-sm sm:text-base">
-          Hands-on aerospace engineering, autonomous drone R&amp;D, space propulsion training, and generative AI research.
+        <p className="mt-4 text-slate-300 max-w-lg text-sm sm:text-base">
+          Aerospace engineering, autonomous drone R&amp;D, space propulsion training, and generative AI research.
         </p>
       </div>
 
-      <div className="relative border-l border-zinc-800 ml-4 sm:ml-8 space-y-12">
+      <div className="relative border-l border-blue-900/40 ml-4 sm:ml-8 space-y-12">
         {experiences.map((exp, index) => (
           <motion.div
             key={exp.role + exp.company}
@@ -102,37 +109,54 @@ export default function ExperienceTimeline() {
             className="relative pl-8 sm:pl-12 group"
           >
             {/* Timeline node */}
-            <div className="absolute -left-[9px] top-1.5 h-4 w-4 rounded-full bg-surface-100 border-2 border-emerald-400 group-hover:scale-125 group-hover:bg-emerald-400 transition-all shadow-[0_0_12px_rgba(16,185,129,0.5)]" />
+            <div className="absolute -left-[9px] top-1.5 h-4 w-4 rounded-full bg-space-void border-2 border-cyan-400 group-hover:scale-125 group-hover:bg-cyan-400 transition-all shadow-[0_0_14px_rgba(0,229,255,0.6)]" />
 
             {/* Content Card */}
-            <div className="glass-panel rounded-2xl p-6 sm:p-8 hover:border-emerald-500/30 transition-colors">
+            <div className="glass-panel rounded-2xl p-6 sm:p-8 hover:border-cyan-500/40 transition-colors">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-                <h3 className="text-xl font-bold text-white group-hover:text-emerald-300 transition-colors">
+                <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors">
                   {exp.role}
                 </h3>
-                <span className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-400 bg-white/5 px-3 py-1 rounded-full w-fit">
-                  <Calendar className="w-3.5 h-3.5 text-emerald-400" />
+                <span className="inline-flex items-center gap-1.5 text-xs font-mono text-cyan-300 bg-cyan-950/40 border border-cyan-400/20 px-3 py-1 rounded-full w-fit">
+                  <Calendar className="w-3.5 h-3.5 text-cyan-400" />
                   {exp.period}
                 </span>
               </div>
 
-              <div className="flex items-center gap-4 text-sm font-medium text-emerald-400 mb-4">
+              <div className="flex items-center gap-4 text-sm font-medium text-cyan-400 mb-4">
                 <span>{exp.company}</span>
-                <span className="text-zinc-600">&bull;</span>
-                <span className="flex items-center gap-1 text-zinc-400 text-xs font-mono">
+                <span className="text-slate-600">&bull;</span>
+                <span className="flex items-center gap-1 text-slate-400 text-xs font-mono">
                   <MapPin className="w-3 h-3" />
                   {exp.location}
                 </span>
               </div>
 
-              <p className="text-zinc-300 text-sm leading-relaxed mb-4">
+              {/* Photo preview if available */}
+              {exp.image && (
+                <div className="my-4 flex flex-col sm:flex-row items-center gap-4 p-3 rounded-xl bg-space-void/80 border border-cyan-500/20">
+                  <div className="relative h-32 w-32 shrink-0 rounded-lg overflow-hidden border border-white/10 shadow-md">
+                    <Image
+                      src={exp.image}
+                      alt={exp.imageAlt || exp.role}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <p className="text-xs text-slate-300 leading-relaxed">
+                    Verified milestone attachment &bull; {exp.imageAlt}
+                  </p>
+                </div>
+              )}
+
+              <p className="text-slate-300 text-sm leading-relaxed mb-4">
                 {exp.description}
               </p>
 
               <div className="space-y-2">
                 {exp.achievements.map((item, i) => (
-                  <div key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-400">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                  <div key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300">
+                    <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
                     <span>{item}</span>
                   </div>
                 ))}
