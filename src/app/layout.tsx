@@ -1,9 +1,18 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import "./globals.css";
-import CustomCursor from "@/components/CustomCursor";
-import SmoothScroll from "@/components/SmoothScroll";
 import Navbar from "@/components/Navbar";
-import SpaceBackground from "@/components/SpaceBackground";
+
+// Dynamically import client-only physics, canvas starfield, and custom cursor with ssr: false
+const SpaceBackground = dynamic(() => import("@/components/SpaceBackground"), {
+  ssr: false,
+});
+const CustomCursor = dynamic(() => import("@/components/CustomCursor"), {
+  ssr: false,
+});
+const SmoothScroll = dynamic(() => import("@/components/SmoothScroll"), {
+  ssr: false,
+});
 
 export const metadata: Metadata = {
   title: "Samuel Oluolamide Adebanjo | Aerospace Engineer & Aero-Astro Intelligence",

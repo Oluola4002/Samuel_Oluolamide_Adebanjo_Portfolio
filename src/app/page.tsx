@@ -1,3 +1,5 @@
+"use client";
+
 import Hero from "@/components/Hero";
 import AeroAstroFeature from "@/components/AeroAstroFeature";
 import HonorsGallery from "@/components/HonorsGallery";
