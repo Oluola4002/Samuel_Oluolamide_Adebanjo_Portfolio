@@ -42,7 +42,7 @@ export default function HonorsGallery() {
               Collection of Excellence Awards
             </h3>
             <p className="text-xs sm:text-sm text-slate-300 mb-6 leading-relaxed">
-              Including the prestigious <strong className="text-white">LASU Best Graduating Student</strong> (Faculty of Engineering), <strong className="text-white">NSE Epe Branch Certificate of Excellence</strong>, <strong className="text-white">Sunbeth Excellence Partnership Program (SEPP)</strong>, and <strong className="text-white">NUESA Scholar of the Year</strong>.
+              Including the prestigious <strong className="text-white">LASU Best Graduating Student</strong> (Faculty of Engineering), <strong className="text-white">NSE Certificate of Excellence</strong>, <strong className="text-white">Sunbeth Excellence Partnership Program (SEPP)</strong>, and <strong className="text-white">NUESA Scholar of the Year</strong>.
             </p>
           </div>
 

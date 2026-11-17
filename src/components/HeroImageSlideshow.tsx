@@ -26,9 +26,9 @@ const personalSlides = [
   },
   {
     src: "/images/field-engineering.jpg",
-    alt: "Samuel Oluolamide Adebanjo - Field Engineering & NSE Hard Hat",
+    alt: "Samuel Oluolamide Adebanjo - Field Engineering Operations",
     caption: "Field Engineering Operations",
-    badge: "NSE Excellence",
+    badge: "GMNSE · P-COREN",
   },
   {
     src: "/images/samuel-headshot-blue.jpg",

@@ -44,18 +44,19 @@ const experiences: Experience[] = [
     ],
   },
   {
-    role: "Field Engineering & NSE Epe Branch Leader",
-    company: "Nigerian Society of Engineers (NSE) & Industry Labs",
+    role: "Field Engineering & Technical Mentorship",
+    company: "GMNSE · P-COREN (Nigerian Society of Engineers & COREN)",
     period: "2024 — Present",
-    location: "Epe, Lagos, Nigeria",
+    location: "Lagos, Nigeria",
     description:
-      "Active on-site field engineering, mechanical operations, tooling compliance, and student mentorship under the Nigerian Society of Engineers.",
+      "Active in applied engineering operations, safety compliance, and technical mentorship as a Graduate Member of the Nigerian Society of Engineers (GMNSE) and Pupil Member of the Council for the Regulation of Engineering in Nigeria (P-COREN).",
     achievements: [
-      "Honored with the NSE Epe Branch Certificate of Excellence as Overall Best Engineering Student.",
-      "Conducted on-site technical evaluations in full PPE and safety compliance.",
+      "Recipient of the Nigerian Society of Engineers (NSE) Certificate of Excellence as Overall Best Engineering Student.",
+      "Registered as P-COREN (Pupil Member of COREN) — the official engineering regulatory body in Nigeria.",
+      "Conducted technical evaluations and hands-on laboratory operations in full PPE and safety compliance.",
     ],
     image: "/images/field-engineering.jpg",
-    imageAlt: "Samuel Adebanjo in Hard Hat and Safety Vest - NSE Field Engineering",
+    imageAlt: "Samuel Adebanjo in Hard Hat and Safety Vest - Field Engineering",
   },
   {
     role: "Deep Tech R&D Engineering Intern (UAVs & Robotics)",

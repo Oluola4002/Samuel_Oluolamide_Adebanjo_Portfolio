@@ -18,6 +18,8 @@ export default function Home() {
     { title: "AltSchool Africa Data Science Scholar", place: "Professional Diploma Cohort" },
     { title: "Scholar of the Year (NUESA & AESA)", place: "Faculty of Engineering" },
     { title: "OPay Scholarship Winner", place: "Top 20 in LASU & Only Engineering Student" },
+    { title: "Graduate Member (GMNSE)", place: "Nigerian Society of Engineers" },
+    { title: "P-COREN — Pupil Member of COREN", place: "Council for the Regulation of Engineering in Nigeria" },
   ];
 
   return (
@@ -49,6 +51,9 @@ export default function Home() {
               </p>
               <p>
                 Seeking to bring this foundation in mechatronics, autonomous UAV design, telemetry, and machine learning into graduate research focused on <span className="text-cyan-400 font-medium">robotic perception, adaptive control, and human-robot interaction</span>.
+              </p>
+              <p>
+                Professionally registered as a <span className="text-white font-medium">Graduate Member of the Nigerian Society of Engineers (GMNSE)</span> and a <span className="text-white font-medium">Pupil Member of COREN (P-COREN)</span> — the statutory body for engineering regulation in Nigeria.
               </p>
             </div>
 
