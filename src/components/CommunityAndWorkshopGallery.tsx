@@ -53,14 +53,6 @@ const moments = [
     tone: "bg-space-void",
   },
   {
-    title: "Project Demonstration",
-    detail: "An engineering prototype prepared for a project demonstration.",
-    image: "/images/engineering-project-demonstration.jpg",
-    alt: "A student engineering prototype displayed at a project demonstration",
-    fit: "cover",
-    tone: "bg-space-void",
-  },
-  {
     title: "SPE LASU Project Event",
     detail: "Presenting during an SPE LASU event and engineering project showcase.",
     image: "/images/spe-lasu-project-event.png",

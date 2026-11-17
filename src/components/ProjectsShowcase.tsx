@@ -59,6 +59,8 @@ const projects: Project[] = [
     githubUrl: "https://github.com/Oluola4002",
     liveUrl: "https://samueloluolamideadebanjo.com",
     metrics: "Second Runner-Up - N100,000 Prize - Nexus 2.0, 2025",
+    image: "/images/engineering-project-demonstration.jpg",
+    imageAlt: "EcoGreenCred prototype demonstrated at the Nexus 2.0 Hackathon",
     images: [
       "/images/ecogreencred-nexus-2-second-runner-up.jpg",
       "/images/ecogreencred-nexus-team-work.jpg",
