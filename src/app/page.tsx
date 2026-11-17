@@ -17,6 +17,8 @@ export default function Home() {
     { title: "Overall Best Graduating Student", place: "LASU Class of 2026 (4.97/5.00 CGPA)" },
     { title: "Top 100 African Future Leaders", place: "Class of 2026 Cohort" },
     { title: "ASME Christopher L. Hoffmann Memorial Scholarship", place: "$2,500 International Merit Stipend" },
+    { title: "Nexus 2.0 Hackathon - Second Runner-Up", place: "Team Greenhouse, 2025" },
+    { title: "AESA Article Writing Competition", place: "Third-Place Winner, 2025" },
     { title: "AltSchool Africa Data Science Scholar", place: "Professional Diploma Cohort" },
     { title: "Scholar of the Year (NUESA & AESA)", place: "Faculty of Engineering" },
     { title: "OPay Scholarship Winner", place: "Top 20 in LASU & Only Engineering Student" },

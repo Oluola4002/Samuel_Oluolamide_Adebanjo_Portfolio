@@ -27,6 +27,13 @@ const featuredRecognitions = [
     label: "Space education",
   },
   {
+    title: "AESA Article Writing Competition",
+    detail: "Third-place winner, Aerospace Engineering Students' Association LASU.",
+    image: "/images/aesa-article-writing-third-place-2025.jpg",
+    alt: "Certificate recognizing Samuel Adebanjo as third-place winner in the AESA Article Writing Competition",
+    label: "3rd place",
+  },
+  {
     title: "AstroVate Virtual Hackathon",
     detail: "Certificate recognizing active participation in the space science hackathon.",
     image: "/images/Astrovate_Hackathon.png",
@@ -164,7 +171,7 @@ export default function HonorsGallery() {
             Awards, Scholarships &amp; Contributions
           </h3>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {featuredRecognitions.map((item, index) => (
             <motion.article
               key={item.title}

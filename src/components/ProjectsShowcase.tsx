@@ -17,6 +17,9 @@ interface Project {
   image?: string;
   images?: string[];
   imageAlt?: string;
+  imageAlts?: string[];
+  imageLabels?: string[];
+  imageFit?: "contain" | "cover";
 }
 
 const projects: Project[] = [
@@ -45,6 +48,27 @@ const projects: Project[] = [
     metrics: "OPay NICA 2026 Finalist Project / Gemini AI Pipeline",
     image: "/images/aeroagropay-ui.png",
     imageAlt: "AeroAgroPay Precision Agriculture Platform UI",
+  },
+  {
+    title: "EcoGreenCred - Nexus 2.0 Hackathon 2025",
+    category: "Sustainability & Social Impact",
+    tagline: "Digital rewards for greener campus habits",
+    description:
+      "A sustainability rewards platform encouraging eco-friendly actions on campus, paired with a weight-measuring smart bin. Team Greenhouse earned Second Runner-Up at the Nexus 2.0 Hackathon in 2025.",
+    tags: ["Sustainability", "Smart Bin", "Digital Rewards", "Team Greenhouse", "Nexus 2.0"],
+    githubUrl: "https://github.com/Oluola4002",
+    liveUrl: "https://samueloluolamideadebanjo.com",
+    metrics: "Second Runner-Up - N100,000 Prize - Nexus 2.0, 2025",
+    images: [
+      "/images/ecogreencred-nexus-2-second-runner-up.jpg",
+      "/images/ecogreencred-nexus-team-work.jpg",
+    ],
+    imageAlts: [
+      "EcoGreenCred team receiving Second Runner-Up recognition at Nexus 2.0 Hackathon 2025",
+      "Team collaborating on a laptop during the Nexus 2.0 Hackathon",
+    ],
+    imageLabels: ["Second Runner-Up", "Team at work"],
+    imageFit: "cover",
   },
   {
     title: "Roboimọtótó Autonomous Voice-Controlled Robot",
@@ -177,31 +201,48 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           </div>
         )}
 
-        {/* Dual Embedded CAD Renders / Blueprints */}
+        {/* Supporting Project Images */}
         {project.images && project.images.length > 0 && (
           <div className="mt-5 grid grid-cols-2 gap-3">
-            <div className="relative h-36 rounded-xl overflow-hidden border border-cyan-500/25 bg-black/60 shadow-md">
-              <Image
-                src={project.images[0]}
-                alt="3D CAD Model in Onshape"
-                fill
-                className="object-contain p-1 group-hover:scale-105 transition-transform duration-300"
-              />
-              <span className="absolute bottom-1 left-2 text-[9px] font-mono text-cyan-300 bg-black/75 px-1.5 py-0.5 rounded">
-                Onshape 3D
-              </span>
-            </div>
-            <div className="relative h-36 rounded-xl overflow-hidden border border-cyan-500/25 bg-white shadow-md">
-              <Image
-                src={project.images[1]}
-                alt="A3 Engineering Drawing Blueprint"
-                fill
-                className="object-contain p-1 group-hover:scale-105 transition-transform duration-300"
-              />
-              <span className="absolute bottom-1 right-2 text-[9px] font-mono text-black bg-white/90 border border-black/20 px-1.5 py-0.5 rounded">
-                A3 Blueprint
-              </span>
-            </div>
+            {project.images.map((image, imageIndex) => (
+              <div
+                key={image}
+                className={`relative h-36 rounded-xl overflow-hidden border border-cyan-500/25 shadow-md ${
+                  project.imageFit === "cover"
+                    ? "bg-black/70"
+                    : imageIndex === 1
+                      ? "bg-white"
+                      : "bg-black/60"
+                }`}
+              >
+                <Image
+                  src={image}
+                  alt={
+                    project.imageAlts?.[imageIndex] ||
+                    (imageIndex === 0
+                      ? "3D CAD model in Onshape"
+                      : "A3 engineering drawing blueprint")
+                  }
+                  fill
+                  sizes="(max-width: 640px) 50vw, 25vw"
+                  className={`${
+                    project.imageFit === "cover" ? "object-cover" : "object-contain p-1"
+                  } group-hover:scale-105 transition-transform duration-300`}
+                />
+                <span
+                  className={`absolute bottom-1 ${imageIndex === 0 ? "left-2" : "right-2"} rounded px-1.5 py-0.5 text-[9px] font-mono ${
+                    project.imageFit === "cover"
+                      ? "bg-black/75 text-white"
+                      : imageIndex === 1
+                        ? "border border-black/20 bg-white/90 text-black"
+                        : "bg-black/75 text-cyan-300"
+                  }`}
+                >
+                  {project.imageLabels?.[imageIndex] ||
+                    (imageIndex === 0 ? "Onshape 3D" : "A3 Blueprint")}
+                </span>
+              </div>
+            ))}
           </div>
         )}
 
