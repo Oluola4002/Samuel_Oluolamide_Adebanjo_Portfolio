@@ -22,14 +22,14 @@ const featuredRecognitions = [
   {
     title: "World Space Week Article Writing Contest",
     detail: "Participation recognition from Space Club LASU, 2025.",
-    image: "/images/world-space-week-article-writing-2025.jfif",
+    image: "/images/Article_Writing.png",
     alt: "Certificate of participation in the World Space Week 2025 Article Writing Contest",
     label: "Space education",
   },
   {
     title: "AstroVate Virtual Hackathon",
     detail: "Certificate recognizing active participation in the space science hackathon.",
-    image: "/images/astrovate-virtual-hackathon-2025.jfif",
+    image: "/images/Astrovate_Hackathon.png",
     alt: "Certificate of active participation in the AstroVate Virtual Hackathon",
     label: "Space technology",
   },
