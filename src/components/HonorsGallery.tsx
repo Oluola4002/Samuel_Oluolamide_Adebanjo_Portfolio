@@ -4,6 +4,37 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Award, GraduationCap, Mic, Sparkles, Trophy } from "lucide-react";
 
+const featuredRecognitions = [
+  {
+    title: "Africa Future Leaders Award 2026",
+    detail: "Selected among the Top 100 Africa Future Leaders.",
+    image: "/images/africa-future-leaders-2026.jpg",
+    alt: "Africa Future Leaders Award 2026 selection poster for Samuel Adebanjo",
+    label: "Top 100 recognition",
+  },
+  {
+    title: "ASME Foundation Scholarship",
+    detail: "Scholarship awardee for the 2026–27 academic year.",
+    image: "/images/asme-scholarship-awardee-2026.png",
+    alt: "ASME Foundation 2026–27 Scholarship Awardee badge for Samuel Adebanjo",
+    label: "2026–27 scholarship",
+  },
+  {
+    title: "World Space Week Article Writing Contest",
+    detail: "Participation recognition from Space Club LASU, 2025.",
+    image: "/images/world-space-week-article-writing-2025.jfif",
+    alt: "Certificate of participation in the World Space Week 2025 Article Writing Contest",
+    label: "Space education",
+  },
+  {
+    title: "AstroVate Virtual Hackathon",
+    detail: "Certificate recognizing active participation in the space science hackathon.",
+    image: "/images/astrovate-virtual-hackathon-2025.jfif",
+    alt: "Certificate of active participation in the AstroVate Virtual Hackathon",
+    label: "Space technology",
+  },
+];
+
 export default function HonorsGallery() {
   return (
     <section id="honors" className="relative py-28 px-4 max-w-6xl mx-auto">
@@ -121,6 +152,47 @@ export default function HonorsGallery() {
               </div>
             </div>
           </motion.div>
+        </div>
+      </div>
+
+      <div className="mt-14">
+        <div className="mb-6 text-center sm:text-left">
+          <span className="text-xs font-mono uppercase tracking-widest text-cyan-400">
+            // Selected Recognition
+          </span>
+          <h3 className="mt-2 text-xl sm:text-2xl font-bold text-white">
+            Awards, Scholarships &amp; Contributions
+          </h3>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
+          {featuredRecognitions.map((item, index) => (
+            <motion.article
+              key={item.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.45, delay: index * 0.06 }}
+              className="glass-panel rounded-2xl p-4 border-cyan-500/15 hover:border-cyan-400/40 transition-colors"
+            >
+              <div className="relative h-52 rounded-xl overflow-hidden bg-white/95 border border-white/10">
+                <Image
+                  src={item.image}
+                  alt={item.alt}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"
+                  className="object-contain p-1"
+                />
+              </div>
+              <span className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-cyan-950/50 border border-cyan-400/20 px-2.5 py-1 text-[10px] font-mono text-cyan-300">
+                <Sparkles className="w-3 h-3" />
+                {item.label}
+              </span>
+              <h4 className="mt-3 text-sm font-bold text-white">{item.title}</h4>
+              <p className="mt-1 text-xs leading-relaxed text-slate-300">
+                {item.detail}
+              </p>
+            </motion.article>
+          ))}
         </div>
       </div>
     </section>

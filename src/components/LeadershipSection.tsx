@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { ArrowUpRight, BookOpen, GraduationCap, Users } from "lucide-react";
 
 const cvUrl = "https://drive.google.com/drive/folders/13o7v3xu0DfpiNPivOy7-YPSjqdmDfFAv?usp=sharing";
@@ -9,7 +10,7 @@ const roles = [
   {
     role: "Project Lead",
     organization: "Inspire The Student Initiative",
-    period: "Oct 2025 – Present",
+    period: "Oct 2025 - Present",
     description:
       "Organizes webinars, tutorials, and shared academic resources, with programs designed to support more than 50 students.",
     icon: Users,
@@ -17,7 +18,7 @@ const roles = [
   {
     role: "Academic Director",
     organization: "SPE Lagos State University",
-    period: "Oct 2025 – Jul 2026",
+    period: "Oct 2025 - Jul 2026",
     description:
       "Coordinated academic webinars, coursework tutorials, and preparation for SPE Petrobowl competitions, including a friendly campus competition.",
     icon: BookOpen,
@@ -25,7 +26,7 @@ const roles = [
   {
     role: "Tutor & Coordinator",
     organization: "Bunday Tutorial",
-    period: "May 2025 – Present",
+    period: "May 2025 - Present",
     description:
       "Tutors and coordinates about 20 first-year students across foundational engineering courses.",
     icon: GraduationCap,
@@ -33,18 +34,28 @@ const roles = [
   {
     role: "Mathematics & Science Instructor",
     organization: "Hesolvesmaths Edhub",
-    period: "Jan 2025 – Present",
+    period: "Jan 2025 - Present",
     description:
-      "Teaches mathematics, physics, chemistry, and science to international Year 4–10 and GCSE learners through a virtual tutorial platform.",
+      "Teaches mathematics, physics, and chemistry across primary, secondary, GCSE/IGCSE, and A-level curricula. His teaching profile records six years of experience and 100+ learners reached overall, including seven through Hesolvesmaths Edhub.",
     icon: BookOpen,
   },
   {
     role: "Learning & Development Coordinator",
     organization: "Space Club LASU",
-    period: "Dec 2023 – Nov 2025",
+    period: "Dec 2023 - Nov 2025",
     description:
       "Organized aerospace and space-systems workshops, curated research resources, and supported member learning and development.",
     icon: Users,
+  },
+  {
+    role: "Volunteer",
+    organization: "Society of Petroleum Engineers",
+    period: "SPE Volunteer",
+    description:
+      "Recognized as a volunteer with the Society of Petroleum Engineers.",
+    icon: Users,
+    image: "/images/spe-volunteer-badge.jpg",
+    imageAlt: "Society of Petroleum Engineers volunteer badge",
   },
 ];
 
@@ -90,6 +101,17 @@ export default function LeadershipSection() {
               <p className="mt-3 text-sm leading-relaxed text-slate-300">
                 {item.description}
               </p>
+              {"image" in item && item.image && (
+                <div className="relative mt-4 h-28 w-28 overflow-hidden rounded-xl border border-cyan-500/20 bg-white">
+                  <Image
+                    src={item.image}
+                    alt={item.imageAlt || item.organization}
+                    fill
+                    sizes="112px"
+                    className="object-contain"
+                  />
+                </div>
+              )}
             </motion.article>
           );
         })}

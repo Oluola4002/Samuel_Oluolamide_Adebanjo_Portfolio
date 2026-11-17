@@ -8,6 +8,7 @@ import ProjectsShowcase from "@/components/ProjectsShowcase";
 import InteractiveSkills from "@/components/InteractiveSkills";
 import ExperienceTimeline from "@/components/ExperienceTimeline";
 import LeadershipSection from "@/components/LeadershipSection";
+import CommunityAndWorkshopGallery from "@/components/CommunityAndWorkshopGallery";
 import ContactSection from "@/components/ContactSection";
 import { Award, GraduationCap, Compass, Cpu, Radio, ShieldCheck, Zap } from "lucide-react";
 
@@ -102,7 +103,10 @@ export default function Home() {
       {/* 9. Leadership, Teaching & Service */}
       <LeadershipSection />
 
-      {/* 10. Contact & Confetti Transmit */}
+      {/* 10. Research, Teaching & Engineering Media */}
+      <CommunityAndWorkshopGallery />
+
+      {/* 11. Contact & Confetti Transmit */}
       <ContactSection />
     </main>
   );
