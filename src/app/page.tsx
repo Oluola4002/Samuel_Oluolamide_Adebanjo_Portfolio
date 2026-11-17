@@ -7,6 +7,7 @@ import MarqueeTicker from "@/components/MarqueeTicker";
 import ProjectsShowcase from "@/components/ProjectsShowcase";
 import InteractiveSkills from "@/components/InteractiveSkills";
 import ExperienceTimeline from "@/components/ExperienceTimeline";
+import LeadershipSection from "@/components/LeadershipSection";
 import ContactSection from "@/components/ContactSection";
 import { Award, GraduationCap, Compass, Cpu, Radio, ShieldCheck, Zap } from "lucide-react";
 
@@ -98,7 +99,10 @@ export default function Home() {
       {/* 8. Research & Industry Experience (FlexiSAF, NSE Field Engineering, NASRDA) */}
       <ExperienceTimeline />
 
-      {/* 9. Contact & Confetti Transmit */}
+      {/* 9. Leadership, Teaching & Service */}
+      <LeadershipSection />
+
+      {/* 10. Contact & Confetti Transmit */}
       <ContactSection />
     </main>
   );

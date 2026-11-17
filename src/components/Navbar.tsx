@@ -3,7 +3,9 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import MagneticButton from "./MagneticButton";
-import { ArrowUpRight, Rocket } from "lucide-react";
+import { ArrowUpRight, ExternalLink, Rocket } from "lucide-react";
+
+const cvUrl = "https://drive.google.com/drive/folders/13o7v3xu0DfpiNPivOy7-YPSjqdmDfFAv?usp=sharing";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -22,6 +24,7 @@ export default function Navbar() {
     { label: "Projects", href: "#projects" },
     { label: "Skills", href: "#skills" },
     { label: "Experience", href: "#experience" },
+    { label: "Leadership", href: "#leadership" },
     { label: "Contact", href: "#contact" },
   ];
 
@@ -62,7 +65,7 @@ export default function Navbar() {
         </MagneticButton>
 
         {/* Links */}
-        <div className="hidden md:flex items-center gap-5">
+        <div className="hidden lg:flex items-center gap-4">
           {navLinks.map((item) => (
             <a
               key={item.label}
@@ -76,6 +79,18 @@ export default function Navbar() {
 
         {/* Action Button */}
         <div className="flex items-center gap-2">
+          <MagneticButton strength={15}>
+            <a
+              href={cvUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View Samuel Adebanjo's CV"
+              className="flex items-center gap-1.5 rounded-full glass-panel hover:bg-cyan-500/10 border border-cyan-400/30 px-3.5 py-1.5 text-xs font-medium tracking-wide text-cyan-200 transition-all hover:border-cyan-400 hover:text-white"
+            >
+              <span>View CV</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+          </MagneticButton>
           <MagneticButton strength={15}>
             <a
               href="mailto:samueloluola.a@gmail.com"

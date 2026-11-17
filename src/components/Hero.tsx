@@ -3,7 +3,9 @@
 import { motion } from "framer-motion";
 import MagneticButton from "./MagneticButton";
 import HeroImageSlideshow from "./HeroImageSlideshow";
-import { ArrowDown, ExternalLink, Rocket, Terminal } from "lucide-react";
+import { ArrowDown, ExternalLink, FileText, Rocket, Terminal } from "lucide-react";
+
+const cvUrl = "https://drive.google.com/drive/folders/13o7v3xu0DfpiNPivOy7-YPSjqdmDfFAv?usp=sharing";
 
 export default function Hero() {
   return (
@@ -99,6 +101,19 @@ export default function Hero() {
               <Rocket className="w-4 h-4 text-black group-hover:-translate-y-0.5 transition-transform" />
               <span>Explore Aero-Astro Research</span>
               <ArrowDown className="w-4 h-4 text-black group-hover:translate-y-0.5 transition-transform" />
+            </a>
+          </MagneticButton>
+
+          <MagneticButton strength={25}>
+            <a
+              href={cvUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 rounded-full glass-panel hover:bg-cyan-500/10 border-cyan-400/30 px-6 py-3.5 text-sm font-semibold text-cyan-100 transition-all hover:border-cyan-400"
+            >
+              <FileText className="w-4 h-4 text-cyan-400" />
+              <span>View Full CV</span>
+              <ExternalLink className="w-3.5 h-3.5 opacity-70" />
             </a>
           </MagneticButton>
 
