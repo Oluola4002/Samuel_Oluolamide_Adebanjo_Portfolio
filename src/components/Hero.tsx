@@ -60,7 +60,7 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.25, ease: "easeOut" }}
               className="mt-4 text-base sm:text-lg text-slate-300 font-light leading-relaxed"
             >
-              Pioneering <span className="text-white font-medium">Aero-Astro Intelligence</span> — integrating deep space rocketry principles, autonomous aerial UAVs, ground robotics, and adaptive machine learning to solve critical aerospace and planetary infrastructure challenges.
+              Pioneering <span className="text-white font-medium">Aero-Astro Intelligence</span> integrating deep space rocketry principles, autonomous aerial UAVs, ground robotics, and adaptive machine learning to solve critical aerospace and planetary infrastructure challenges.
             </motion.p>
 
             <motion.div
