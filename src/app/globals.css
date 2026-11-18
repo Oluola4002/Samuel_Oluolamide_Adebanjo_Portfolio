@@ -1,65 +1,101 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --background: #030712;
-  --foreground: #f0f6fc;
+@tailwind base;@tailwind components;@tailwind utilities;
+:root{--ease:cubic-bezier(.76,0,.24,1);--cream:242 237 228;--cream-50:250 247 241;--cream-200:230 223 210;--cream-300:211 201 184;--ink:14 14 14;--ink-800:26 26 26;--ink-600:74 70 63;--ink-400:122 115 104;--ember:224 86 43;color-scheme:light}
+/* dark mode: same palette, reversed. "cream" = page background, "ink" = text */
+[data-theme=dark]{--cream:14 14 13;--cream-200:31 30 28;--cream-300:52 50 46;--ink:240 234 223;--ink-800:226 219 206;--ink-600:184 177 165;--ink-400:136 129 118;color-scheme:dark}
+/* black sections become a slightly raised charcoal panel in dark mode */
+[data-theme=dark] .dark{--ink:24 23 21;--ink-800:36 35 32;--cream:240 234 223}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:rgb(var(--cream));color:rgb(var(--ink));transition:background-color .4s,color .4s;overflow-x:hidden;text-rendering:optimizeLegibility}
+::selection{background:rgb(var(--ink));color:rgb(var(--cream))}
+section[id]{scroll-margin-top:84px}
+@layer components{
+.wrap{@apply mx-auto w-full max-w-site px-5 sm:px-8 lg:px-12}
+.eyebrow{@apply font-mono text-[11px] uppercase tracking-[.18em] text-ink-400}
+.dot-label{@apply inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[.18em] text-ink-600}
+.dot-label:before{content:"";@apply h-2 w-2 rounded-full bg-ember}
+.dark .dot-label{@apply text-cream/60}
+.pill{@apply inline-flex items-center gap-2 rounded-full border border-ink/10 bg-cream-200/70 py-1.5 pl-2 pr-3 font-mono text-[11px] uppercase tracking-[.08em] text-ink-600 transition-colors hover:text-ink}
+.pill i{@apply grid h-4 w-4 place-items-center rounded-full border border-ink/40}
+.pill i:after{content:"";@apply h-1.5 w-1.5 rounded-full bg-ink}
+.glass{background:rgb(var(--cream)/.85);border:1px solid rgb(var(--ink)/.08)}
+@supports (backdrop-filter:blur(1px)){@media (min-width:1024px){.glass{backdrop-filter:blur(12px) saturate(1.2);background:rgb(var(--cream)/.62)}}}
+.h2{@apply font-serif text-[2.4rem] leading-[1.02] tracking-tight sm:text-6xl}
+.btn{@apply inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-colors duration-300}
+.btn-dark{@apply btn bg-ink text-cream hover:bg-ink-800}
+.btn-line{@apply btn border border-ink/20 hover:border-ink}
+.rail{@apply flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.chip{@apply rounded-full border border-ink/15 px-3 py-1 text-xs}
+.dark .chip{@apply border-cream/20}
 }
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: auto; /* Lenis handles smooth scrolling */
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-  overflow-x: hidden;
-}
-
-::selection {
-  background: #00e5ff;
-  color: #030712;
-}
-
-/* Aerospace Telemetry Grid Pattern */
-.bg-space-grid {
-  background-size: 50px 50px;
-  background-image: 
-    linear-gradient(to right, rgba(56, 189, 248, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(56, 189, 248, 0.05) 1px, transparent 1px);
-}
-
-.bg-dot-pattern {
-  background-size: 28px 28px;
-  background-image: radial-gradient(rgba(0, 229, 255, 0.12) 1px, transparent 1px);
-}
-
-/* Deep Space Glassmorphism Panels */
-.glass-panel {
-  background: rgba(9, 18, 36, 0.65);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(56, 189, 248, 0.12);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
-}
-
-.glass-pill {
-  background: rgba(10, 20, 42, 0.75);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(0, 229, 255, 0.2);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
-}
-
-/* Custom Cursor default behavior */
-@media (hover: hover) and (pointer: fine) {
-  body {
-    cursor: default;
-  }
-}
+/* intro curtain — pure CSS, no JS */
+.curtain{position:fixed;inset:0;z-index:100;pointer-events:none;display:grid;grid-template-rows:1fr 1fr;animation:gone 0s 2.3s forwards}
+@keyframes gone{to{visibility:hidden}}
+.curtain i{background:rgb(var(--ink));animation:cu 1.1s var(--ease) 1.1s forwards}
+.curtain i+i{animation-name:cd}
+.curtain b{position:absolute;inset:0;display:grid;place-items:center;color:rgb(var(--cream));font:400 clamp(1.6rem,5vw,3rem)/1 var(--f-serif);animation:fo .4s ease .9s forwards}
+.curtain b span{display:block;overflow:hidden}
+.curtain b span em{display:block;font-style:italic;animation:ri .8s var(--ease) both}
+@keyframes cu{to{transform:translateY(-100%)}}@keyframes cd{to{transform:translateY(100%)}}
+@keyframes fo{to{opacity:0}}@keyframes ri{from{transform:translateY(110%)}}
+/* scroll reveal + image curtain */
+[data-r]{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s var(--ease)}
+[data-r].in{opacity:1;transform:none}
+.cimg{position:relative;overflow:hidden}
+.cimg:after{content:"";position:absolute;inset:0;background:rgb(var(--ink));transform-origin:top;transition:transform 1s var(--ease)}
+.in .cimg:after,.cimg.in:after{transform:scaleY(0)}
+.dark .cimg:after{background:rgb(var(--cream))}
+/* marquee */
+.mq{display:flex;width:max-content;animation:mq 40s linear infinite}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* portrait slideshow */
+.slide{position:absolute;inset:0;opacity:0;transform:translateY(16px) scale(.98);transition:opacity 1.1s ease,transform 1.4s var(--ease)}
+.slide.on{opacity:1;transform:none}
+.fade-b{-webkit-mask-image:linear-gradient(to bottom,#000 72%,transparent);mask-image:linear-gradient(to bottom,#000 72%,transparent)}
+/* menu curtain */
+.menu{clip-path:inset(0 0 100% 0);transition:clip-path .8s var(--ease)}
+.menu.open{clip-path:inset(0 0 0 0)}
+@media (prefers-reduced-motion:reduce){*,:after{animation:none!important;transition:none!important}.curtain{display:none}[data-r]{opacity:1;transform:none}.cimg:after{display:none}}
+/* theme switch: circular reveal from the toggle (View Transitions), instant fallback elsewhere */
+::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}
+::view-transition-new(root){animation:tw .7s var(--ease)}
+@keyframes tw{from{clip-path:circle(0 at var(--tx,90%) var(--ty,0))}to{clip-path:circle(150% at var(--tx,90%) var(--ty,0))}}
+/* phones: let swipes scroll the page instead of getting trapped by the 3D canvas; taps are relayed to the robot */
+@media (hover:none){.robot canvas{pointer-events:none}}
+/* headline: each line rises out of a mask (CSS only, starts after the intro curtain) */
+.lines>span{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
+.lines>span>span{display:block;animation:ri 1.1s var(--ease) both}
+.lines>span:nth-child(1)>span{animation-delay:1.55s}.lines>span:nth-child(2)>span{animation-delay:1.65s}.lines>span:nth-child(3)>span{animation-delay:1.75s}
+/* robot: legs fade out at the bottom edge instead of being cut off */
+.robot>div{-webkit-mask-image:linear-gradient(to bottom,#000 78%,transparent);mask-image:linear-gradient(to bottom,#000 78%,transparent)}
+/* logo strip: fade at both edges */
+.fade-x{-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+@keyframes bar{from{width:0}to{width:100%}}
+/* "virtual" rendering: the browser skips layout & paint for sections that are off screen */
+.cv{content-visibility:auto;contain-intrinsic-size:auto 900px}
+.mq{will-change:transform}
+/* hero solar system in CSS 3D: tilted orbit plane, drawn twice (far half behind the robot, near half in front) */
+.orb-layer{position:absolute;left:50%;top:44%;width:150%;aspect-ratio:1;transform:translate(-50%,-50%);perspective:1100px}
+@media (min-width:640px){.orb-layer{width:125%}}@media (min-width:1024px){.orb-layer{width:118%}}
+.orb-layer.far{z-index:-1;clip-path:inset(0 0 50% 0)}
+.orb-layer.near{z-index:2;clip-path:inset(50% 0 0 0)}
+.orb-plane{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateX(var(--tilt,66deg)) rotateZ(var(--yaw,-16deg))}
+.orb-ring{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;border:1px solid rgb(var(--ink)/.13);transform-style:preserve-3d}
+.orb-spin{position:absolute;inset:0;transform-style:preserve-3d;animation:spin linear infinite}
+.orb-slot{position:absolute;left:50%;top:0;transform-style:preserve-3d}
+.orb-unspin{transform-style:preserve-3d;animation:spin linear infinite reverse}
+.orb-face{position:relative;transform-style:preserve-3d;transform:rotateZ(calc(-1 * var(--yaw,-16deg))) rotateX(calc(-1 * var(--tilt,66deg)))}
+@keyframes spin{to{transform:rotate(360deg)}}
+.planet{position:absolute;left:0;top:0;display:block;border-radius:50%;transform:translate(-50%,-50%);pointer-events:auto;cursor:pointer;transition:transform .3s var(--ease)}
+.planet:hover,.planet:focus-visible{transform:translate(-50%,-50%) scale(1.35);outline:none}
+/* shaded spheres */
+.p-ink{background:radial-gradient(circle at 32% 30%,#8a847a,#2a2826 55%,#0e0e0e)}
+.p-ember{background:radial-gradient(circle at 32% 30%,#ffb38f,#e0562b 50%,#7a2a10)}
+.p-sand{background:radial-gradient(circle at 32% 30%,#f5e9d3,#c9b38d 55%,#7d6a4c)}
+.p-stone{background:radial-gradient(circle at 32% 30%,#e2ddd4,#8e877c 55%,#4a453e)}
+[data-theme=dark] .p-ink{background:radial-gradient(circle at 32% 30%,#fff,#b8b1a5 50%,#5b564e)}
+.saturn:after{content:"";position:absolute;left:50%;top:50%;width:210%;height:52%;border:1.5px solid rgb(var(--ink)/.45);border-radius:50%;transform:translate(-50%,-50%) rotate(-20deg)}
+.orb-tip{position:absolute;z-index:5;pointer-events:none;transform:translate(-50%,calc(-100% - 10px));white-space:nowrap;border-radius:999px;padding:4px 10px;font:500 10px/1.2 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:rgb(var(--ink-600));background:rgb(var(--cream)/.9);border:1px solid rgb(var(--ink)/.1)}
+.twinkle{animation:tw2 4s ease-in-out infinite}
+@keyframes tw2{50%{opacity:.35}}
+.paused .orb-spin,.paused .orb-unspin,.paused .twinkle{animation-play-state:paused}
