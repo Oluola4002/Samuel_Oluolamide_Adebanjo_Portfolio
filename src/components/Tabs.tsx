@@ -13,7 +13,7 @@ export default function Tabs({sets}:{sets:Record<string,Item[]>}){
     <span><span className="block text-lg font-medium leading-snug">{e.r}</span><span className="text-sm text-ink-600">{e.o}{e.l?` · ${e.l}`:""}<span className="sm:hidden"> · {e.p}</span></span></span>
     <Icon i={o===i?MinusSignIcon:Add01Icon}/>
    </button>
-   <div className={`grid transition-[grid-template-rows] duration-500 ${o===i?"grid-rows-[1fr]":"grid-rows-[0fr]"}`}><ul className="overflow-hidden sm:ml-[180px]">{e.a.map(x=><li key={x} className="pb-3 text-[15px] leading-relaxed text-ink-600 last:pb-6">— {x}</li>)}</ul></div>
+   <div className={`grid transition-[grid-template-rows] duration-500 ${o===i?"grid-rows-[1fr]":"grid-rows-[0fr]"}`}><ul className="overflow-hidden sm:ml-[180px]">{e.a.map(x=><li key={x} className="pb-3 text-[15px] leading-relaxed text-ink-600 last:pb-6">• {x}</li>)}</ul></div>
   </li>)}</ul>
  </div>);
 }

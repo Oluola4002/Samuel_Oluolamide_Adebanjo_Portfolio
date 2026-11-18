@@ -93,7 +93,7 @@ export default function SplineRobot(){
    <Safe onFail={()=>setFailed(true)}><Suspense fallback={null}><Spline scene={SCENE} onLoad={onLoad}/></Suspense></Safe>
   </div>}
   <div ref={poster} className={`pointer-events-none absolute inset-0 transition-[opacity,transform] duration-700 ease-out ${live?"opacity-0":"opacity-100"}`}>
-   <Image src="/images/robot-poster.webp" alt="Interactive robot" fill priority sizes="(max-width:1024px) 100vw, 620px" className="object-cover object-center"/>
+   <Image src="/images/robot-poster.webp" alt="Interactive robot" fill priority quality={95} sizes="(max-width:1024px) 100vw, 620px" className="object-contain object-center"/>
   </div>
   <span className="absolute left-3 top-4 whitespace-nowrap font-mono sm:left-6 sm:top-7 text-[10px] uppercase tracking-[.18em] text-ink-400">{live?"Click anywhere · it looks":"Tap anywhere"}</span>
  </div>);

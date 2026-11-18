@@ -10,7 +10,7 @@ export default function Portraits(){
  return(<div ref={r} className="relative mx-auto aspect-[4/5] w-full max-w-[300px] sm:max-w-[360px] lg:max-w-[460px]">
   <div aria-hidden className="absolute inset-x-[8%] bottom-[6%] top-[14%] rounded-t-full bg-cream-200"/>
   {portraits.map((p,k)=><div key={p.src} className={`slide fade-b ${k===i?"on":""}`}>
-   <Image src={p.src} alt={`Samuel Oluolamide Adebanjo — ${p.cap}`} fill loading="lazy" sizes="(max-width:768px) 80vw, 460px" className="object-contain object-bottom"/>
+   <Image src={p.src} alt={`Samuel Oluolamide Adebanjo, ${p.cap}`} fill loading="lazy" quality={95} sizes="(max-width:768px) 80vw, 460px" className="object-contain object-bottom"/>
   </div>)}
   <div className="absolute -bottom-2 left-0 right-0 flex items-center justify-between text-xs text-ink-600">
    <span key={i} className="italic font-serif text-base">{portraits[i].cap}</span>

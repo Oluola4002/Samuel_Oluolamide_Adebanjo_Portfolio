@@ -1,4 +1,4 @@
-# Samuel Oluolamide Adebanjo — Portfolio Website
+# Samuel Oluolamide Adebanjo - Portfolio Website
 
 > **Live Domain**: [samueloluolamideadebanjo.com](https://samueloluolamideadebanjo.com)
 

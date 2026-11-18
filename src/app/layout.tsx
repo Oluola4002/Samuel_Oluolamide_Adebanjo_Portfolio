@@ -12,12 +12,12 @@ export const viewport:Viewport={themeColor:"#F2EDE4"};
 // Runs before paint so the page never flashes the wrong theme.
 const themeScript=`try{var t=localStorage.getItem("theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.dataset.theme=t;if(t==="dark")document.querySelector('meta[name="theme-color"]')?.setAttribute("content","#0E0E0D")}catch(e){}`;
 export const metadata:Metadata={
- title:"Samuel Oluolamide Adebanjo — Aerospace Engineer",
+ title:"Samuel Oluolamide Adebanjo - Aerospace Engineer",
  description:"Portfolio of Samuel Oluolamide Adebanjo, First-Class Aerospace Engineer and researcher in Aero-Astro Intelligence: autonomous UAV/UGV robotics, flight dynamics and deep learning.",
  keywords:["Samuel Oluolamide Adebanjo","Aerospace Engineer","Aero-Astro Intelligence","UAV Autonomy","Lagos State University","SPE NAICE"],
  authors:[{name:"Samuel Oluolamide Adebanjo"}],
- openGraph:{title:"Samuel Oluolamide Adebanjo — Aero-Astro Intelligence",description:"First-Class Aerospace Engineer pioneering autonomous robotics and aerospace systems.",url:"https://samueloluolamideadebanjo.com",siteName:"Samuel Oluolamide Adebanjo",locale:"en_US",type:"website"},
- twitter:{card:"summary_large_image",title:"Samuel Oluolamide Adebanjo — Aerospace Engineer"},
+ openGraph:{title:"Samuel Oluolamide Adebanjo - Aero-Astro Intelligence",description:"First-Class Aerospace Engineer pioneering autonomous robotics and aerospace systems.",url:"https://samueloluolamideadebanjo.com",siteName:"Samuel Oluolamide Adebanjo",locale:"en_US",type:"website"},
+ twitter:{card:"summary_large_image",title:"Samuel Oluolamide Adebanjo - Aerospace Engineer"},
 };
 
 export default function RootLayout({children}:{children:React.ReactNode}){

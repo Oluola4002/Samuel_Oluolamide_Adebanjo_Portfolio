@@ -28,7 +28,7 @@ export default function WorkCanvas(){
   <div className="order-1 lg:order-2">
    <div className="relative aspect-[4/3] overflow-hidden rounded-[22px] bg-cream-200 lg:aspect-[5/4]">
     {projects.map((x,i)=><div key={x.img} className={`absolute inset-0 transition-[opacity,transform] duration-700 ${i===a?"scale-100 opacity-100":"scale-[1.03] opacity-0"}`}>
-     <Image src={x.img} alt={x.t} fill sizes="(max-width:1024px) 100vw, 640px" loading="lazy" className={x.fit==="contain"?"object-contain p-6":"object-cover"}/>
+     <Image src={x.img} alt={x.t} fill quality={95} sizes="(max-width:1024px) 100vw, 640px" loading="lazy" className="object-contain p-4"/>
     </div>)}
     <div className="glass absolute inset-x-4 bottom-4 flex items-center justify-between gap-4 rounded-2xl px-5 py-4 sm:inset-x-auto sm:left-6 sm:min-w-[300px]">
      <div><p className="font-mono text-[10px] uppercase tracking-[.16em] text-ink-400">{p.k}</p><p className="mt-1 font-serif text-2xl leading-none">{p.t}</p></div>

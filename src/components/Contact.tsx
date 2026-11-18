@@ -6,7 +6,7 @@ import{EMAIL,PHONE,socials}from"@/lib/data";
 export default function Contact(){
  const[c,setC]=useState(false);
  const copy=()=>{navigator.clipboard?.writeText(EMAIL);setC(true);setTimeout(()=>setC(false),2500)};
- const send=(e:React.FormEvent<HTMLFormElement>)=>{e.preventDefault();const f=new FormData(e.currentTarget);location.href=`mailto:${EMAIL}?subject=${encodeURIComponent("Portfolio enquiry from "+f.get("n"))}&body=${encodeURIComponent(String(f.get("m"))+"\n\n— "+f.get("n")+" ("+f.get("e")+")")}`};
+ const send=(e:React.FormEvent<HTMLFormElement>)=>{e.preventDefault();const f=new FormData(e.currentTarget);location.href=`mailto:${EMAIL}?subject=${encodeURIComponent("Portfolio enquiry from "+f.get("n"))}&body=${encodeURIComponent(String(f.get("m"))+"\n\n- "+f.get("n")+" ("+f.get("e")+")")}`};
  const inp="w-full border-b border-cream/20 bg-transparent py-3 text-cream placeholder:text-cream/35 focus:border-cream focus:outline-none";
  return(<div className="grid gap-14 lg:grid-cols-2">
   <div data-r>

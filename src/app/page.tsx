@@ -31,7 +31,7 @@ export default function Home(){
     <a href="#research" data-r className="pill"><i/>New · SPE paper at NAICE 2026<Icon i={ArrowRight01Icon} s={14}/></a>
     <h1 className="lines mt-7 font-serif text-[3.4rem] leading-[.95] tracking-tight sm:text-7xl xl:text-[6.5rem]"><span><span>Engineering</span></span><span><span>autonomy for <em className="text-ink-400">air</em></span></span><span><span>&amp; <em className="text-ink-400">space.</em></span></span></h1>
     <p data-r className="eyebrow mt-7">First-Class Aerospace Engineer · Lagos, Nigeria</p>
-    <p data-r className="mt-4 max-w-lg text-[17px] leading-relaxed text-ink-600">I’m Samuel Oluolamide Adebanjo — LASU’s best graduating student of 2026 — building <span className="text-ink">Aero-Astro Intelligence</span>: autonomous UAVs, ground robots and adaptive machine learning for aerospace problems.</p>
+    <p data-r className="mt-4 max-w-lg text-[17px] leading-relaxed text-ink-600">I’m Samuel Oluolamide Adebanjo, LASU’s best graduating student of 2026, building <span className="text-ink">Aero-Astro Intelligence</span>: autonomous UAVs, ground robots and adaptive machine learning for aerospace problems.</p>
     <div data-r className="mt-10 flex flex-wrap gap-3">
      <a href="#work" className="btn-dark">See my work<Icon i={ArrowDown01Icon} s={16}/></a>
      <a href={CV} target="_blank" rel="noopener noreferrer" className="btn-line">Full CV<Icon i={ArrowUpRight01Icon} s={16}/></a>
@@ -58,7 +58,7 @@ export default function Home(){
     <div data-r className="md:sticky md:top-24"><Portraits/></div>
     <div data-r>
      <div className="space-y-4 text-[15px] leading-relaxed text-ink-600">
-      <p>First-Class Honours, CGPA <b className="font-medium text-ink">4.97/5.00</b> — best graduating student across Lagos State University in 2026, the highest CGPA in the history of the Department of Aerospace Engineering.</p>
+      <p>First-Class Honours with a CGPA of <b className="font-medium text-ink">4.97/5.00</b>. Best graduating student across Lagos State University in 2026, with the highest CGPA in the history of the Department of Aerospace Engineering.</p>
       <p>Graduate Member of the Nigerian Society of Engineers (GMNSE) and Pupil Member of COREN. Seeking graduate research in perception, adaptive control and human-robot interaction.</p>
      </div>
      <ol className="mt-8 grid grid-cols-2 gap-x-5 sm:gap-x-8">{honors.map(([t,p],i)=><li key={t} className="flex gap-3 border-t border-ink/15 py-3.5"><span className="font-mono text-[10px] text-ink-400">{String(i+1).padStart(2,"0")}</span><span><span className="block text-[13px] font-medium leading-snug sm:text-[15px]">{t}</span><span className="text-xs text-ink-400 sm:text-[13px]">{p}</span></span></li>)}</ol>
@@ -69,7 +69,7 @@ export default function Home(){
   {/* RESEARCH (dark) */}
   <section id="research" className="cv dark bg-ink py-20 text-cream md:py-28">
    <div className="wrap">
-    <Head n="02" e="Research" t={<>Aero-Astro <em>Intelligence</em> — aerospace, robotics &amp; AI as one discipline.</>}/>
+    <Head n="02" e="Research" t={<>Aero-Astro <em>Intelligence</em>: aerospace, robotics &amp; AI as one discipline.</>}/>
     <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-cream/10 lg:grid-cols-4">
      {pillars.map((p,i)=><div key={p.t} data-r className="bg-ink p-4 sm:p-7"><Icon i={pIcons[i]} s={24} c="text-ember"/><h3 className="mt-6 font-serif text-xl leading-tight sm:mt-10 sm:text-2xl">{p.t}</h3><p className="mt-2 text-xs leading-relaxed text-cream/55 sm:mt-3 sm:text-sm">{p.d}</p></div>)}
     </div>
