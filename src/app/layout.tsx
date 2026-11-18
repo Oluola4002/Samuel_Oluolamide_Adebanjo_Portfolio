@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
+import { Josefin_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+
+const josefinSans = Josefin_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
 
 // Dynamically import client-only physics, canvas starfield, and custom cursor with ssr: false
 const SpaceBackground = dynamic(() => import("@/components/SpaceBackground"), {
@@ -54,7 +61,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth">
+    <html lang="en" className={`${josefinSans.variable} dark scroll-smooth`}>
       <body className="font-sans antialiased bg-space-void text-foreground min-h-screen selection:bg-cyan-400 selection:text-black relative">
         <SpaceBackground />
         <SmoothScroll>

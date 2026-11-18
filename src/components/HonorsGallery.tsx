@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Award, GraduationCap, Mic, Sparkles, Trophy } from "lucide-react";
+import { Award, GraduationCap, Sparkles, Trophy } from "lucide-react";
 
 const featuredRecognitions = [
   {
@@ -39,6 +39,20 @@ const featuredRecognitions = [
     image: "/images/Astrovate_Hackathon.png",
     alt: "Certificate of active participation in the AstroVate Virtual Hackathon",
     label: "Space technology",
+  },
+  {
+    title: "Employability and Digital Skills Training",
+    detail: "Certificate of participation from Jobs Initiative Lagos, completed 6 December 2025.",
+    image: "/images/jil-employability-digital-skills-certificate.jpeg",
+    alt: "Jobs Initiative Lagos certificate for completing Employability and Digital Skills Training",
+    label: "Professional development",
+  },
+  {
+    title: "Foundations in Stress Analysis of Structures",
+    detail: "Completed the ANSYS Learning Track on 30 March 2025.",
+    image: "/images/ansys-stress-analysis-certificate.png",
+    alt: "ANSYS Learning Track certificate for Foundations in Stress Analysis of Structures",
+    label: "ANSYS Learning Track",
   },
 ];
 
@@ -124,41 +138,6 @@ export default function HonorsGallery() {
             </div>
           </motion.div>
 
-          {/* Speaking Session Banner */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.25 }}
-            className="glass-panel rounded-3xl p-6 border-cyan-500/20 flex flex-col justify-between group overflow-hidden"
-          >
-            <div className="flex items-center justify-between mb-3">
-              <span className="flex items-center gap-1.5 text-xs font-mono text-cyan-300">
-                <Mic className="w-3.5 h-3.5 text-cyan-400" />
-                <span>Invited Keynote Speaker</span>
-              </span>
-              <span className="text-[11px] font-mono text-slate-400">Oct 2026</span>
-            </div>
-
-            <div className="flex items-center gap-4">
-              <div className="relative h-24 w-20 shrink-0 rounded-xl overflow-hidden border border-white/15">
-                <Image
-                  src="/images/speaking-beyond-the-niche.jpg"
-                  alt="Beyond The Niche Speaker - Samuel Olu-olamide Adebanjo"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div>
-                <h4 className="text-sm font-bold text-white leading-snug">
-                  Beyond The Niche: Courage, Sacrifice &amp; Legacy
-                </h4>
-                <p className="text-xs text-slate-300 mt-1 leading-relaxed">
-                  Featured guest speaker sharing technical insights on building resilient aerospace careers and impactful engineering initiatives.
-                </p>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </div>
 

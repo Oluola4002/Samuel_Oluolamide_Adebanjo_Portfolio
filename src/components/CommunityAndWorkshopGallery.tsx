@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { Mic, Users } from "lucide-react";
 
 const moments = [
   {
@@ -126,6 +127,62 @@ export default function CommunityAndWorkshopGallery() {
             </figcaption>
           </motion.figure>
         ))}
+      </div>
+
+      <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-5">
+        <motion.article
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.45 }}
+          className="glass-panel rounded-2xl p-4 sm:p-5 border-cyan-500/15"
+        >
+          <div className="flex items-center gap-2 text-cyan-300 mb-3">
+            <Users className="w-4 h-4 text-cyan-400" />
+            <span className="text-xs font-mono uppercase tracking-wider">Space Club LASU · Academic Director</span>
+          </div>
+          <div className="grid grid-cols-2 grid-rows-2 gap-2 h-64 sm:h-72 rounded-xl overflow-hidden">
+            <div className="relative row-span-2">
+              <Image src="/images/space-clubs-week-outreach-01.jpg" alt="Space Clubs Week school outreach with students gathered for a presentation" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
+            </div>
+            <div className="relative">
+              <Image src="/images/space-clubs-week-outreach-02.jpg" alt="Space Clubs Week outreach visit with school students" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" />
+            </div>
+            <div className="relative">
+              <Image src="/images/space-clubs-week-outreach-03.jpg" alt="Students taking part in the Space Clubs Week outreach" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" />
+            </div>
+          </div>
+          <h3 className="mt-4 text-base font-bold text-white">Space Clubs Week Outreach</h3>
+          <p className="mt-1 text-sm leading-relaxed text-slate-300">
+            Led a Space Clubs Week school outreach with Space Club LASU as Academic Director, sharing space science and engineering with students.
+          </p>
+        </motion.article>
+
+        <motion.article
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.45, delay: 0.08 }}
+          className="glass-panel rounded-2xl p-4 sm:p-5 border-cyan-500/15"
+        >
+          <div className="flex items-center gap-2 text-cyan-300 mb-3">
+            <Mic className="w-4 h-4 text-cyan-400" />
+            <span className="text-xs font-mono uppercase tracking-wider">Invited Keynote Speaker · October 2026</span>
+          </div>
+          <div className="relative h-64 sm:h-72 rounded-xl overflow-hidden border border-white/10 bg-space-void">
+            <Image
+              src="/images/speaking-beyond-the-niche.jpg"
+              alt="Samuel Oluolamide Adebanjo speaking at Beyond The Niche"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
+            />
+          </div>
+          <h3 className="mt-4 text-base font-bold text-white">Beyond The Niche: Courage, Sacrifice &amp; Legacy</h3>
+          <p className="mt-1 text-sm leading-relaxed text-slate-300">
+            Featured guest speaker sharing perspectives on building resilient aerospace careers and impactful engineering initiatives.
+          </p>
+        </motion.article>
       </div>
     </section>
   );
