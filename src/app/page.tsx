@@ -61,7 +61,7 @@ export default function Home(){
       <p>First-Class Honours in Aerospace Engineering, with a CGPA of <b className="font-medium text-ink">4.97/5.00</b>. Named Lagos State University’s Best Graduating Student for 2026.</p>
       <p>Graduate Member of the Nigerian Society of Engineers (GMNSE) and Pupil Member of COREN. Seeking graduate research in perception, adaptive control and human-robot interaction.</p>
      </div>
-     <div className="mt-10">
+     <div id="education" className="mt-10 scroll-mt-24">
       <p className="dot-label mb-5">Education</p>
       <div className="space-y-7">
        {education.map((item)=><article key={item.school} className="border-t border-ink/15 pt-4">

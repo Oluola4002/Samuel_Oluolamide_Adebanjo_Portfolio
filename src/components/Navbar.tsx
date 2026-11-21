@@ -4,7 +4,7 @@ import{ArrowUpRight01Icon,Menu01Icon,Cancel01Icon}from"@/components/hugeicons";
 import Icon from"./Icon";
 import ThemeToggle from"./ThemeToggle";
 import{CV}from"@/lib/data";
-const links=[["About","#about"],["Research","#research"],["Work","#work"],["Experience","#experience"],["Contact","#contact"]];
+const links=[["About","#about"],["Education","#education"],["Research","#research"],["Work","#work"],["Experience","#experience"],["Contact","#contact"]];
 export default function Navbar(){
  const[s,setS]=useState(false),[o,setO]=useState(false);
  useEffect(()=>{const f=()=>setS(scrollY>40);f();addEventListener("scroll",f,{passive:true});return()=>removeEventListener("scroll",f)},[]);
