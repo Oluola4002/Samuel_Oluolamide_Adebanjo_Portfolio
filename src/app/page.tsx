@@ -8,7 +8,7 @@ import Gallery from"@/components/Gallery";
 import Tabs from"@/components/Tabs";
 import Skills from"@/components/Skills";
 import Contact from"@/components/Contact";
-import{CV,stats,honors,pillars,papers,experience,leadership}from"@/lib/data";
+import{CV,stats,honors,education,pillars,papers,experience,leadership}from"@/lib/data";
 
 const pIcons=[Rocket01Icon,DroneIcon,Satellite01Icon,AiBrain01Icon];
 // Affiliations wall, set in mixed type like a logo strip.
@@ -58,8 +58,23 @@ export default function Home(){
     <div data-r className="md:sticky md:top-24"><Portraits/></div>
     <div data-r>
      <div className="space-y-4 text-[15px] leading-relaxed text-ink-600">
-      <p>First-Class Honours with a CGPA of <b className="font-medium text-ink">4.97/5.00</b>. Best graduating student across Lagos State University in 2026, with the highest CGPA in the history of the Department of Aerospace Engineering.</p>
+      <p>First-Class Honours in Aerospace Engineering, with a CGPA of <b className="font-medium text-ink">4.97/5.00</b>. Named Lagos State University’s Best Graduating Student for 2026.</p>
       <p>Graduate Member of the Nigerian Society of Engineers (GMNSE) and Pupil Member of COREN. Seeking graduate research in perception, adaptive control and human-robot interaction.</p>
+     </div>
+     <div className="mt-10">
+      <p className="dot-label mb-5">Education</p>
+      <div className="space-y-7">
+       {education.map((item)=><article key={item.school} className="border-t border-ink/15 pt-4">
+        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+         <h3 className="text-[15px] font-semibold text-ink">{item.school}<span className="font-normal text-ink-400"> · {item.place}</span></h3>
+         <p className="font-mono text-[11px] text-ink-400">{item.period}</p>
+        </div>
+        <p className="mt-1 text-sm italic text-ink-600">{item.degree}</p>
+        <ul className="mt-3 space-y-2 text-[13px] leading-relaxed text-ink-600">
+         {item.details.map((detail)=><li key={detail} className="flex gap-2"><span className="text-ember">•</span><span>{detail}</span></li>)}
+        </ul>
+       </article>)}
+      </div>
      </div>
      <ol className="mt-8 grid grid-cols-2 gap-x-5 sm:gap-x-8">{honors.map(([t,p],i)=><li key={t} className="flex gap-3 border-t border-ink/15 py-3.5"><span className="font-mono text-[10px] text-ink-400">{String(i+1).padStart(2,"0")}</span><span><span className="block text-[13px] font-medium leading-snug sm:text-[15px]">{t}</span><span className="text-xs text-ink-400 sm:text-[13px]">{p}</span></span></li>)}</ol>
     </div>

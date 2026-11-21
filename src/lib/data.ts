@@ -21,13 +21,18 @@ export const honors=[
  ["Overall Best Graduating Student","LASU Class of 2026 · 4.97/5.00"],
  ["Top 100 African Future Leaders","Class of 2026 cohort"],
  ["ASME Christopher L. Hoffmann Memorial Scholarship","$2,500 international merit award"],
- ["Nexus 2.0 Hackathon: Second Runner-Up","Team Greenhouse, 2025"],
+ ["Nexus 2.0 Hackathon: Second Runner-Up","Team Greengineers, 2025"],
  ["AESA Article Writing Competition","Third place, 2025"],
  ["Scholar of the Year","NUESA & AESA, Faculty of Engineering"],
  ["OPay Scholarship","Top 20 in LASU, only engineering student"],
  ["AltSchool Africa Data Science Scholar","Professional diploma cohort"],
  ["Graduate Member, GMNSE","Nigerian Society of Engineers"],
  ["P-COREN","Council for the Regulation of Engineering in Nigeria"],
+];
+
+export const education=[
+ {school:"Lagos State University (LASU)",place:"Ojo, Lagos, Nigeria",period:"Oct 2021 – Aug 2026",degree:"B.Sc. Aerospace Engineering · First-Class Honours",details:["CGPA: 4.97/5.00 (WES equivalent: 3.98/4.00). Best Student in the 2026 graduating class; highest CGPA in the Department of Aerospace Engineering and a joint departmental record. Third-highest CGPA in the University’s history.","Relevant coursework: Mechatronics, Flight Dynamics, Aerodynamics, Aircraft Design, Orbital Mechanics, Rotor Dynamics, Engineering Computation (MATLAB and Python), Numerical Analysis, Computational Fluid Dynamics, CAD/CAE, Propulsion Engineering, Structural Dynamics, and Thermodynamics."]},
+ {school:"AltSchool Africa",place:"Remote",period:"Mar 2026 – Present",degree:"Professional Diploma in Data Science · SOD Baraka Cohort 2026",details:["Learner ID: ALT/SOD/BAR/026/0159.","Technical focus: machine learning, statistical modeling, and data engineering."]},
 ];
 
 export const pillars=[
@@ -45,7 +50,7 @@ export const papers=[
 export const projects=[
  {t:"SkyClerk",k:"Autonomous delivery UAV",img:"/images/skyclerk-logo.jpg",fit:"cover",d:"Team lead. Designed the full autonomous flight flow, from loading and takeoff through waypoint navigation, landing, offloading and return-to-base, with a telemetry dashboard and 3D-printed cargo bay.",tags:["ROS2","ESP32","Onshape","Telemetry"]},
  {t:"AeroAgroPay",k:"OPay NICA 2026 · Drone agritech",img:"/images/aeroagropay-ui.png",fit:"cover",d:"Pay-as-you-go precision spraying drone with Gemini-powered NDVI crop scanning that builds alternative credit scores for unbanked smallholder farmers.",tags:["Gemini AI","Computer vision","ESP32"]},
- {t:"EcoGreenCred",k:"Nexus 2.0 · Second Runner-Up",img:"/images/ecogreencred-nexus-2-second-runner-up.jpg",fit:"cover",d:"Campus sustainability rewards platform paired with a weight-measuring smart bin. Team Greenhouse, ₦100,000 prize.",tags:["Smart bin","Rewards","IoT"]},
+ {t:"EcoGreenCred",k:"Nexus 2.0 · Second Runner-Up",img:"/images/spe-lasu-project-event.png",fit:"contain",d:"Campus sustainability rewards platform paired with a weight-measuring smart bin. Team Greengineers, ₦100,000 prize.",tags:["Smart bin","Rewards","IoT"]},
  {t:"Roboimọtótó",k:"Voice-controlled robot",img:"/images/roboimototo-robot.jpg",fit:"cover",d:"Mobile patrol robot with a servo lid that opens and closes on voice command, plus ultrasonic obstacle avoidance.",tags:["Speech","Arduino / C++","HRI"]},
  {t:"LASU Aircraft Hangar",k:"360 m² facility · CAD",img:"/images/hangar-3d-model.png",fit:"contain",d:"Facilities lead. 15 m clear-span hangar with avionics clean rooms, propulsion test cells, NCAA compliance and A3 manufacturing drawings.",tags:["Onshape","NCAA","Blueprints"]},
 ];
